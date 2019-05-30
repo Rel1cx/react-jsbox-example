@@ -3,21 +3,8 @@ import ReactJSBox from 'react-jsbox'
 import rootContainer from './Containers/root'
 const {width, height} = $device.info.screen
 
-const counterReducer = (state, action) => {
-  switch (action.type) {
-    case 'INCREASE':
-      return {...state, count: state.count + 1}
-    case 'DECREASE':
-      return {...state, count: state.count - 1}
-    case 'RESET':
-      return {...state, count: 0}
-    default:
-      throw new Error()
-  }
-}
-
 const App = () => {
-  const [state, dispatch] = React.useReducer(counterReducer, {count: 0})
+  const [count, setCount] = ReactJSBox.useCache('key3', 0)
   const listTemplate = {
     views: [
       {
@@ -39,7 +26,7 @@ const App = () => {
         frame={styles.text}
         align={$align.center}
         font={$font('ArialRoundedMTBold', 26)}
-        text={String(state.count)}
+        text={String(count)}
         autoFontSize={true}
       />
       <list
@@ -50,7 +37,7 @@ const App = () => {
         data={['INCREASE', 'DECREASE', 'RESET']}
         template={listTemplate}
         events={{
-          didSelect: (sender, indexPath, data) => dispatch({type: data})
+          didSelect: (sender, {row}, data) => setCount(count => count + [1, -1, -count][row])
         }}
       />
     </view>

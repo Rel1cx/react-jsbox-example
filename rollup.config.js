@@ -25,7 +25,7 @@ export default [
   {
     input: 'src/main.js',
     treeshake: true,
-    external: ['react'],
+    // external: ['react'],
     output: [{dir: 'dist', format: 'cjs', strict: false}], // set strict to false in JSBox
     plugins: [
       progress({

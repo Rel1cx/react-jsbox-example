@@ -2535,6 +2535,23 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-jsbox@^0.0.27:
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/react-jsbox/-/react-jsbox-0.0.27.tgz#05c6f899434191d55dda9e9f77324c20be645d3f"
+  integrity sha512-uPq6QmTUHQ6BOW3EP1B5nugbXgskEgH1fiBWPHGymMt4hAnmfUy7U5azXgsUV9GKyNGkZEwW90CmHlDKOqX6nQ==
+  dependencies:
+    react-reconciler alpha
+
+react-reconciler@alpha:
+  version "0.21.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.21.0-alpha.0.tgz#9a05c014efc75bcf3b5952e8e55a00d2e9ad0b4f"
+  integrity sha512-iS7+3PpuLHLEpFoFa4OopFx3Ra/K5Ub/pib5G/sYRRd+VohdHJkMr8n2DAU74TrDeW3kPbRXDzL6wo08C1FqpQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.14.0-alpha.0"
+
 react@alpha:
   version "16.9.0-alpha.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0-alpha.0.tgz#e350f3d8af36e3251079cbc90d304620e2f78ccb"

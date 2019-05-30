@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactJSBox from '../../../react-jsbox-renderer/lib/react-jsbox'
+import ReactJSBox from 'react-jsbox'
 import rootContainer from './Containers/root'
 const {width, height} = $device.info.screen
 
