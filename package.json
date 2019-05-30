@@ -56,6 +56,7 @@
     "rollup-plugin-terser": "^5.0.0"
   },
   "dependencies": {
-    "react": "alpha"
+    "react": "alpha",
+    "react-jsbox": "^0.0.27"
   }
 }

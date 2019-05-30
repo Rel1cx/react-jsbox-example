@@ -1,2 +1,4 @@
 // global.window = undefined
-require('./scripts/app.useEffect')
+// require('./scripts/app')
+// require('./scripts/app.useReducer')
+require('./scripts/app.useCache')
