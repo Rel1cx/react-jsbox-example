@@ -1,14 +1,16 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
+import {closeSync, existsSync, mkdirSync, openSync} from 'fs'
+
 import babel from 'rollup-plugin-babel'
-import {terser} from 'rollup-plugin-terser'
-import replace from 'rollup-plugin-modify'
 import cleanup from 'rollup-plugin-cleanup'
+import commonjs from 'rollup-plugin-commonjs'
 import copy from 'rollup-plugin-copy-assets'
-import progress from 'rollup-plugin-progress'
-import {existsSync, mkdirSync, openSync, closeSync} from 'fs'
 import {dirname} from 'path'
+import {eslint} from 'rollup-plugin-eslint'
 import pkg from './package.json'
+import progress from 'rollup-plugin-progress'
+import replace from 'rollup-plugin-modify'
+import resolve from 'rollup-plugin-node-resolve'
+import {terser} from 'rollup-plugin-terser'
 
 export const mkdirp = path => {
   if (existsSync(path)) {
@@ -31,6 +33,7 @@ export default [
       progress({
         clearLine: true
       }),
+      eslint(),
       replace({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
