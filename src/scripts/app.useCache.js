@@ -4,7 +4,7 @@ import rootContainer from './Containers/root'
 const {width, height} = $device.info.screen
 
 const App = () => {
-  const [count, setCount] = ReactJSBox.useCache('key3', 0)
+  const [count, setCount] = ReactJSBox.useCache('count', 0)
   const listTemplate = {
     views: [
       {
@@ -37,7 +37,8 @@ const App = () => {
         data={['INCREASE', 'DECREASE', 'RESET']}
         template={listTemplate}
         events={{
-          didSelect: (sender, {row}, data) => setCount(count => count + [1, -1, -count][row])
+          didSelect: (sender, {row}, data) =>
+            setCount(count => count + [1, -1, -count][row])
         }}
       />
     </view>
