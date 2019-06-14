@@ -1,18 +1,17 @@
-import {closeSync, existsSync, mkdirSync, openSync} from 'fs'
-
 import babel from 'rollup-plugin-babel'
 import cleanup from 'rollup-plugin-cleanup'
 import commonjs from 'rollup-plugin-commonjs'
 import copy from 'rollup-plugin-copy-assets'
 import {dirname} from 'path'
 import {eslint} from 'rollup-plugin-eslint'
-import pkg from './package.json'
 import progress from 'rollup-plugin-progress'
 import replace from 'rollup-plugin-modify'
 import resolve from 'rollup-plugin-node-resolve'
 import {terser} from 'rollup-plugin-terser'
-
-export const mkdirp = path => {
+import {closeSync, existsSync, mkdirSync, openSync} from 'fs'
+import path from 'path'
+import pkg from './package.json'
+const mkdirp = path => {
   if (existsSync(path)) {
     return
   }
@@ -23,12 +22,23 @@ export const mkdirp = path => {
   mkdirSync(path)
 }
 
+const SOURCE_DIR = path.resolve(__dirname, 'src')
+const DIST_DIR = path.resolve(__dirname, 'dist')
+const input = `${SOURCE_DIR}/main.js`
+
+const getBabelOptions = ({useESModules}) => ({
+  exclude: '**/node_modules/**',
+  runtimeHelpers: true,
+  configFile: path.join(__dirname, './babel.config.js'),
+  plugins: ['babel-plugin-annotate-pure-calls', ['@babel/plugin-transform-runtime', {useESModules}]]
+})
+
 export default [
   {
-    input: 'src/main.js',
+    input,
     treeshake: true,
-    // external: ['react'],
-    output: [{dir: 'dist', format: 'cjs', strict: false}], // set strict to false in JSBox
+    external: ['react'],
+    output: [{dir: DIST_DIR, format: 'cjs'}],
     plugins: [
       progress({
         clearLine: true
@@ -38,16 +48,9 @@ export default [
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
       resolve({
-        // jsnext: true,
         dedupe: ['react']
       }),
-      babel({
-        extensions: ['.js'],
-        runtimeHelpers: true,
-        exclude: ['node_modules/@babel/**', /\/core-js\//],
-        presets: pkg.babel.presents,
-        plugins: pkg.babel.plugins
-      }),
+      babel(getBabelOptions({useESModules: false})),
       commonjs(),
       terser(),
       cleanup(),
@@ -60,8 +63,8 @@ export default [
         name: 'fix',
         buildEnd(err) {
           if (err) return
-          mkdirp('dist/scripts')
-          closeSync(openSync('dist/scripts/app.js', 'w'))
+          mkdirp(path.join(DIST_DIR, 'scripts'))
+          closeSync(openSync(path.join(DIST_DIR, 'scripts', 'app.js'), 'w'))
         }
       }
     ]

@@ -10,56 +10,35 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": "iOS 11"
-        }
-      ],
-      "@babel/preset-react",
-      [
-        "minify",
-        {
-          "builtIns": false,
-          "evaluate": false,
-          "mangle": false,
-          "keepFnName": true
-        }
-      ]
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import"
-    ]
-  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.4.5",
     "babel-eslint": "^10.0.1",
-    "babel-preset-minify": "^0.5.0",
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jsbox-cli": "^1.1.0",
-    "prettier": "^1.17.1",
-    "rollup": "^1.12.5",
+    "prettier": "^1.18.2",
+    "rollup": "^1.15.5",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-copy-assets": "^2.0.1",
     "rollup-plugin-eslint": "^6.0.0",
     "rollup-plugin-modify": "^3.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.0.2",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-terser": "^5.0.0"
   },
   "dependencies": {
     "react": "alpha",
-    "react-jsbox": "^0.0.27"
+    "react-jsbox": "^0.0.32"
   }
 }
