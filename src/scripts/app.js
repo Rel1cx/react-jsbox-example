@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
 import rootContainer from './Containers/root'
-const {width, height} = $device.info.screen
+const { width, height } = $device.info.screen
 
 // Create React Components:
 class App extends React.PureComponent {
@@ -47,7 +47,7 @@ class App extends React.PureComponent {
           data={['INCREASE', 'DECREASE', 'RESET']}
           template={this._listTemplate}
           events={{
-            didSelect: (sender, {row}, data) =>
+            didSelect: (sender, { row }, data) =>
               this.setState({
                 count: this.state.count + [1, -1, -this.state.count][row]
               })
