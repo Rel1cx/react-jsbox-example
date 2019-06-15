@@ -13,7 +13,7 @@ const App = () => {
   )
 }
 
-let styles = {
+const styles = {
   container: $rect(0, 0, width, height - 40),
   text: $rect(0, 64, width, 30)
 }

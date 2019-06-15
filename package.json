@@ -35,7 +35,8 @@
     "rollup-plugin-modify": "^3.0.0",
     "rollup-plugin-node-resolve": "^5.0.2",
     "rollup-plugin-progress": "^1.1.1",
-    "rollup-plugin-terser": "^5.0.0"
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-url-resolve": "^0.1.0"
   },
   "dependencies": {
     "react": "alpha",
