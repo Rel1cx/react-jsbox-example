@@ -33,7 +33,7 @@ const App = () => {
   if (loading) {
     return (
       <view frame={styles.container}>
-        <label frame={styles.loadingTitle} font={$font(48)} text={'APOD'} align={$align.center} />
+        <label frame={styles.title} font={$font(48)} text={'APOD'} align={$align.center} />
         <spinner frame={styles.spinner} loading={loading} />
       </view>
     )
@@ -60,7 +60,7 @@ const App = () => {
 
 const styles = {
   container: $rect(0, 10, width, height - 40),
-  loadingTitle: $rect(0, height * 0.25, width, 50),
+  title: $rect(0, height * 0.25, width, 50),
   spinner: $rect(width * 0.5 - 10, height * 0.4, 20, 20),
   image: $rect(0, 0, width, 280),
   label: $rect(0, 290, width, 25),

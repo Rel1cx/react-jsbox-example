@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactJSBox from 'react-jsbox'
+import * as ReactJSBox from 'https://github.com/mjackson/rollup-plugin-url-resolve'
 import rootContainer from './Containers/root'
 const { width, height } = $device.info.screen
 
@@ -58,7 +58,7 @@ class App extends React.PureComponent {
   }
 }
 
-let styles = {
+const styles = {
   container: $rect(0, 0, width, height - 40),
   text: $rect(0, 64, width, 30),
   list: $rect(0, (height - 40) * 0.3, width, 132)
