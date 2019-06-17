@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel'
 import cleanup from 'rollup-plugin-cleanup'
 import commonjs from 'rollup-plugin-commonjs'
 import copy from 'rollup-plugin-copy-assets'
-import {resolve, join, dirname} from 'path'
+import {dirname, join, resolve} from 'path'
 import {eslint} from 'rollup-plugin-eslint'
 import progress from 'rollup-plugin-progress'
 import replace from 'rollup-plugin-modify'
@@ -28,14 +28,17 @@ const getBabelOptions = ({useESModules}) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
   configFile: join(__dirname, './babel.config.js'),
-  plugins: ['babel-plugin-annotate-pure-calls', ['@babel/plugin-transform-runtime', {useESModules}]]
+  plugins: [
+    'babel-plugin-annotate-pure-calls',
+    ['@babel/plugin-transform-runtime', {useESModules}]
+  ]
 })
 
 export default [
   {
     input,
     treeshake: true,
-    external: ['react'],
+    external: ['react', 'react-jsbox'],
     output: [{dir: DIST_DIR, format: 'cjs'}],
     plugins: [
       progress({
@@ -50,8 +53,8 @@ export default [
       }),
       babel(getBabelOptions({useESModules: false})),
       commonjs(),
-      terser(),
-      cleanup(),
+      // terser(),
+      // cleanup(),
       copy({
         assets: ['src/assets', 'src/strings', 'src/config.json', 'src/README.MD']
       }),

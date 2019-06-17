@@ -1,10 +1,9 @@
 import React from 'react'
-import * as ReactJSBox from 'https://github.com/mjackson/rollup-plugin-url-resolve'
-import rootContainer from './Containers/root'
+import ReactJSBox from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 // Create React Components:
-class App extends React.PureComponent {
+export default class App extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -47,8 +46,7 @@ class App extends React.PureComponent {
           data={['INCREASE', 'DECREASE', 'RESET']}
           template={this._listTemplate}
           events={{
-            didSelect: (sender, { row }, data) =>
-              this.setState({
+            didSelect: (sender, { row }, data) => this.setState({
                 count: this.state.count + [1, -1, -this.state.count][row]
               })
           }}
@@ -63,9 +61,3 @@ const styles = {
   text: $rect(0, 64, width, 30),
   list: $rect(0, (height - 40) * 0.3, width, 132)
 }
-
-// Create a root Container:
-$ui.render(rootContainer)
-
-// Create React elements and render them:
-ReactJSBox.render(<App />, $('root'))
