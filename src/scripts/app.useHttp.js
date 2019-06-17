@@ -1,6 +1,4 @@
 import React from 'react'
-import ReactJSBox from 'react-jsbox'
-import rootContainer from './Containers/root'
 import { apiKey } from './constants'
 const { useState, useEffect } = React
 const { width, height } = $device.info.screen
@@ -11,7 +9,7 @@ const useHttp = url => {
   const [error, setError] = useState()
 
   useEffect(() => {
-    void async function() {
+    void(async function() {
       try {
         setLoading(true)
         const { data } = await $http.get(url)
@@ -21,54 +19,42 @@ const useHttp = url => {
       } finally {
         setLoading(false)
       }
-    }()
+    })()
   }, [url])
 
   return [data, loading, error]
 }
 
-const App = () => {
+export default function App() {
+  // const { width, height } = context
   const [data, loading, error] = useHttp(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+
+  const content = `
+  ![](${data.url})
+  ### ${data.title}
+  ${data.explanation}
+  `
+
   // Loading state
   if (loading) {
     return (
-      <view frame={styles.container}>
-        <label frame={styles.title} font={$font(48)} text={'APOD'} align={$align.center} />
+      <>
+        <label frame={styles.loading} font={$font(48)} text={'APOD'} align={$align.center} />
         <spinner frame={styles.spinner} loading={loading} />
-      </view>
+      </>
     )
   }
 
   // Error state
   if (error) {
-    return (
-      <view style={styles.container}>
-        <label style={styles.label} text={data.error.message} />
-      </view>
-    )
+    return <label style={styles.label} text={data.error.message} />
   }
 
   // Fetched content state
-  return (
-    <view frame={styles.container}>
-      <image frame={styles.image} src={data.url} />
-      <label frame={styles.label} font={$font('.SFUI-bold', 26)} text={data.title} />
-      <text frame={styles.text} font={$font('.SFUI', 14)} text={data.explanation} selectable={false} />
-    </view>
-  )
+  return <markdown frame={$('root').frame} content={content} />
 }
 
 const styles = {
-  container: $rect(0, 10, width, height - 40),
-  title: $rect(0, height * 0.25, width, 50),
-  spinner: $rect(width * 0.5 - 10, height * 0.4, 20, 20),
-  image: $rect(0, 0, width, 280),
-  label: $rect(0, 290, width, 25),
-  text: $rect(0, 320, width, height - 400)
+  loading: $rect(0, height * 0.25, width, 50),
+  spinner: $rect(width * 0.5 - 10, height * 0.4, 20, 20)
 }
-
-// Create a root Container:
-$ui.render(rootContainer)
-
-// Create React elements and render them:
-ReactJSBox.render(<App />, $('root'))

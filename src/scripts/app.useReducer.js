@@ -1,23 +1,23 @@
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
-import rootContainer from './Containers/root'
-const {width, height} = $device.info.screen
+import rootContainer from './containers/root'
+const { width, height } = $device.info.screen
 
 const counterReducer = (state, action) => {
   switch (action.type) {
     case 'INCREASE':
-      return {...state, count: state.count + 1}
+      return { ...state, count: state.count + 1 }
     case 'DECREASE':
-      return {...state, count: state.count - 1}
+      return { ...state, count: state.count - 1 }
     case 'RESET':
-      return {...state, count: 0}
+      return { ...state, count: 0 }
     default:
       throw new Error()
   }
 }
 
-const App = () => {
-  const [state, dispatch] = React.useReducer(counterReducer, {count: 0})
+export default function App() {
+  const [state, dispatch] = React.useReducer(counterReducer, { count: 0 })
   const listTemplate = {
     views: [
       {
@@ -50,7 +50,7 @@ const App = () => {
         data={['INCREASE', 'DECREASE', 'RESET']}
         template={listTemplate}
         events={{
-          didSelect: (sender, indexPath, data) => dispatch({type: data})
+          didSelect: (sender, indexPath, data) => dispatch({ type: data })
         }}
       />
     </view>
@@ -62,9 +62,3 @@ const styles = {
   text: $rect(0, 64, width, 30),
   list: $rect(0, (height - 40) * 0.3, width, 132)
 }
-
-// Create a root Container:
-$ui.render(rootContainer)
-
-// Create React elements and render them:
-ReactJSBox.render(<App />, $('root'))

@@ -39,6 +39,7 @@
     "rollup-plugin-url-resolve": "^0.1.0"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "alpha",
     "react-jsbox": "^0.0.32"
   }
