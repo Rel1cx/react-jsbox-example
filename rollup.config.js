@@ -28,17 +28,14 @@ const getBabelOptions = ({useESModules}) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
   configFile: join(__dirname, './babel.config.js'),
-  plugins: [
-    'babel-plugin-annotate-pure-calls',
-    ['@babel/plugin-transform-runtime', {useESModules}]
-  ]
+  plugins: ['babel-plugin-annotate-pure-calls', ['@babel/plugin-transform-runtime', {useESModules}]]
 })
 
 export default [
   {
     input,
     treeshake: true,
-    external: ['react', 'react-jsbox'],
+    // external: ['react', 'react-jsbox'],
     output: [{dir: DIST_DIR, format: 'cjs'}],
     plugins: [
       progress({
@@ -56,7 +53,7 @@ export default [
       // terser(),
       // cleanup(),
       copy({
-        assets: ['src/assets', 'src/strings', 'src/config.json', 'src/README.MD']
+        assets: ['src/assets', 'src/strings', 'src/config.json', 'src/README.MD', 'src/scripts']
       }),
 
       // Create an empty app.js script in scripts directory
@@ -65,7 +62,7 @@ export default [
         buildEnd(err) {
           if (err) return
           mkdirp(join(DIST_DIR, 'scripts'))
-          closeSync(openSync(join(DIST_DIR, 'scripts', 'app.js'), 'w'))
+          closeSync(openSync(join(DIST_DIR, 'scripts/app.js'), 'w'))
         }
       }
     ]
