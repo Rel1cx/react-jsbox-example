@@ -1,6 +1,7 @@
 const { width, height } = $device.info.screen
 
-const createContainer = ID_list => ID_list.map(id => ({
+const createContainer = ID_list =>
+  ID_list.map(id => ({
     title: id,
     rows: [
       {

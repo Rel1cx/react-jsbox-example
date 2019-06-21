@@ -20,13 +20,13 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.4.5",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jsbox-cli": "^1.1.0",
     "prettier": "^1.18.2",
-    "rollup": "^1.15.6",
+    "rollup": "^1.16.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.0.0",
@@ -39,6 +39,7 @@
     "rollup-plugin-url-resolve": "^0.1.0"
   },
   "dependencies": {
+    "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "alpha",
     "react-jsbox": "^0.0.33"
