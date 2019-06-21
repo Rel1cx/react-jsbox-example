@@ -6,10 +6,10 @@ const { width, height } = $device.info.screen
 const useHttp = url => {
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState()
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    void(async function() {
+    void async function() {
       try {
         setLoading(true)
         const { data } = await $http.get(url)
@@ -19,13 +19,13 @@ const useHttp = url => {
       } finally {
         setLoading(false)
       }
-    })()
+    }()
   }, [url])
 
   return [data, loading, error]
 }
 
-export default function App() {
+export default function HttpExample() {
   // const { width, height } = context
   const [data, loading, error] = useHttp(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
 
@@ -51,7 +51,7 @@ export default function App() {
   }
 
   // Fetched content state
-  return <markdown frame={$('root').frame} content={content} />
+  return <markdown frame={$('HttpExample').frame} content={content} />
 }
 
 const styles = {
