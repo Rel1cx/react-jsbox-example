@@ -18,6 +18,9 @@ export default function CodeView(props) {
           margin: 0;
           padding: 0;
         }
+        body {
+          background: #2d2d2d;
+        }
         #prism-pre,
         #prism-code {
           white-space: pre-wrap;

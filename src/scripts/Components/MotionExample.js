@@ -14,6 +14,6 @@ export default function MotionExample() {
 }
 
 const styles = {
-  container: $rect(0, 0, width, height - 40),
+  container: $rect(0, 0, width, width),
   text: $rect(0, 64, width, 30)
 }
