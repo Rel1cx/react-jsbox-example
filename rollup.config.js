@@ -50,8 +50,8 @@ export default [
       }),
       babel(getBabelOptions({useESModules: false})),
       commonjs(),
-      // terser(),
-      // cleanup(),
+      terser(),
+      cleanup(),
       copy({
         assets: ['src/assets', 'src/strings', 'src/config.json', 'src/README.MD', 'src/scripts']
       })

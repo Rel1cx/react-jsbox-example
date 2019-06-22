@@ -16,8 +16,8 @@ const Comps = {
   HttpExample
 }
 
-const createContainers = ID_list =>
-  ID_list.map(id => ({
+const createContainers = idList =>
+  idList.map(id => ({
     title: id,
     rows: [
       {
