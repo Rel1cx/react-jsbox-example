@@ -16,7 +16,7 @@ const Comps = {
   HttpExample
 }
 
-const createContainer = ID_list =>
+const createContainers = ID_list =>
   ID_list.map(id => ({
     title: id,
     rows: [
@@ -41,7 +41,7 @@ $ui.render({
       type: 'list',
       props: {
         rowHeight: width,
-        data: createContainer(Object.keys(Comps))
+        data: createContainers(Object.keys(Comps))
       },
       layout(make, view) {
         make.edges.equalTo(view.super.safeArea)

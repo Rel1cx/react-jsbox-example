@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
-import rootContainer from '../Containers/root'
 const { width, height } = $device.info.screen
 
 export default function MotionExample() {
