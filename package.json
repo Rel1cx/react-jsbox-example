@@ -39,8 +39,6 @@
     "rollup-plugin-url-resolve": "^0.1.0"
   },
   "dependencies": {
-    "prismjs": "^1.16.0",
-    "prop-types": "^15.7.2",
     "react": "alpha",
     "react-jsbox": "^0.0.33"
   }
