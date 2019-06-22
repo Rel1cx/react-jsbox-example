@@ -17,10 +17,14 @@ export default class ExampleView extends React.Component {
           image={$data({ url: codeIcon }).image}
           bgcolor={$color('clear')}
           events={{
-            tapped: () =>
+            tapped: () => {
+              $audio.play({
+                id: 1104
+              })
               this.setState({
                 showCode: !this.state.showCode
               })
+            }
           }}
         />
       </>
