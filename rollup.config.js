@@ -54,17 +54,17 @@ export default [
       // cleanup(),
       copy({
         assets: ['src/assets', 'src/strings', 'src/config.json', 'src/README.MD', 'src/scripts']
-      }),
+      })
 
       // Create an empty app.js script in scripts directory
-      {
-        name: 'fix',
-        buildEnd(err) {
-          if (err) return
-          mkdirp(join(DIST_DIR, 'scripts'))
-          closeSync(openSync(join(DIST_DIR, 'scripts/app.js'), 'w'))
-        }
-      }
+      // {
+      //   name: 'fix',
+      //   buildEnd(err) {
+      //     if (err) return
+      //     mkdirp(join(DIST_DIR, 'scripts'))
+      //     closeSync(openSync(join(DIST_DIR, 'scripts/app.js'), 'w'))
+      //   }
+      // }
     ]
   }
 ]

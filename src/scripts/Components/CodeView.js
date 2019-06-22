@@ -7,26 +7,32 @@ export default function CodeView(props) {
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="user-scalable=no" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/agate.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/themes/prism-tomorrow.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/prismjs@1.15.0/plugins/line-numbers/prism-line-numbers.min.css"
+      />
+      <title>Code</title>
       <style>
         * {
           margin: 0;
           padding: 0;
         }
-        code,
-        pre {
+        #prism-pre,
+        #prism-code {
           white-space: pre-wrap;
           word-wrap: break-word;
-          font-size: 1.2rem;
-          line-height: 24px;
+          font-size: 1.25rem;
         }
       </style>
     </head>
-    <body class="hljs">
-      <pre><code class="hljs">${code}</code></pre>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <body>
+      <pre id="prism-pre" class="language-jsx"><code id="prism-code" class="language-jsx">${code}</code></pre>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/prism.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/components/prism-javascript.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/components/prism-jsx.min.js"></script>
       <script>
-        hljs.initHighlightingOnLoad()
+        Prism.highlightAll(true)
       </script>
     </body>
   </html>
