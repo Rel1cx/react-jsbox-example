@@ -44,7 +44,7 @@ export default function CacheExample() {
 }
 
 const styles = {
-  container: $rect(0, 0, width, height - 40),
+  container: $rect(0, 0, width, width),
   text: $rect(0, 64, width, 30),
-  list: $rect(0, (height - 40) * 0.3, width, 132)
+  list: $rect(0, width * 0.5, width, 132)
 }
