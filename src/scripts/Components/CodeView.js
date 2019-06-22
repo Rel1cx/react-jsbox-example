@@ -8,10 +8,6 @@ export default function CodeView(props) {
       <meta charset="UTF-8" />
       <meta name="viewport" content="user-scalable=no" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/themes/prism-tomorrow.css" />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/prismjs@1.15.0/plugins/line-numbers/prism-line-numbers.min.css"
-      />
       <title>Code</title>
       <style>
         * {
