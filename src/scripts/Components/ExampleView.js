@@ -5,7 +5,7 @@ export default class ExampleView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showCode: 0
+      showCode: false
     }
   }
   render() {

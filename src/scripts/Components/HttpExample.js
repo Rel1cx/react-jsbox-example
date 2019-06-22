@@ -9,7 +9,7 @@ const useHttp = url => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    void (async function() {
+    void async function() {
       try {
         setLoading(true)
         const { data } = await $http.get(url)
@@ -19,14 +19,13 @@ const useHttp = url => {
       } finally {
         setLoading(false)
       }
-    })()
+    }()
   }, [url])
 
   return [data, loading, error]
 }
 
 export default function HttpExample() {
-  // const { width, height } = context
   const [data, loading, error] = useHttp(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
 
   const content = `
