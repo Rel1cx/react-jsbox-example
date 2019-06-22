@@ -3,7 +3,7 @@ import ReactJSBox from 'react-jsbox'
 import rootContainer from '../Containers/root'
 const { width, height } = $device.info.screen
 
-export default function App() {
+export default function MotionExample() {
   const [state] = ReactJSBox.useMotion()
 
   return (

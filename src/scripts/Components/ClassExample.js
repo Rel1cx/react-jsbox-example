@@ -3,7 +3,7 @@ import ReactJSBox from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 // Create React Components:
-export default class App extends React.PureComponent {
+export default class ClassExample extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

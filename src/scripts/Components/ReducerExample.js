@@ -15,7 +15,7 @@ const counterReducer = (state, action) => {
   }
 }
 
-export default function App() {
+export default function ReducerExample() {
   const [state, dispatch] = React.useReducer(counterReducer, { count: 0 })
   const listTemplate = {
     views: [
