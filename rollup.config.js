@@ -1,7 +1,7 @@
 import babel from 'rollup-plugin-babel'
 import cleanup from 'rollup-plugin-cleanup'
 import commonjs from 'rollup-plugin-commonjs'
-import copy from 'rollup-plugin-copy-assets'
+import copy from 'rollup-plugin-copy'
 import {dirname, join, resolve} from 'path'
 import {eslint} from 'rollup-plugin-eslint'
 import progress from 'rollup-plugin-progress'
@@ -55,13 +55,22 @@ export default [
       commonjs(),
       terser(),
       cleanup(),
+      // copy({
+      //   assets: [
+      //     'src/assets',
+      //     'src/strings',
+      //     'src/config.json',
+      //     'src/README.MD',
+      //     'src/scripts'
+      //   ]
+      // }),
       copy({
-        assets: [
-          'src/assets',
-          'src/strings',
-          'src/config.json',
-          'src/README.MD',
-          'src/scripts'
+        targets: [
+          {src: 'src/assets/*', dest: 'dist/assets'},
+          {src: 'src/strings/*', dest: 'dist/strings'},
+          {src: 'src/config.json', dest: 'dist/'},
+          {src: 'README.MD', dest: 'dist/'},
+          {src: 'src/scripts/*', dest: 'dist/scripts/'}
         ]
       })
 
