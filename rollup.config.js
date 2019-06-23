@@ -55,21 +55,12 @@ export default [
       commonjs(),
       terser(),
       cleanup(),
-      // copy({
-      //   assets: [
-      //     'src/assets',
-      //     'src/strings',
-      //     'src/config.json',
-      //     'src/README.MD',
-      //     'src/scripts'
-      //   ]
-      // }),
       copy({
         targets: [
           {src: 'src/assets/*', dest: 'dist/assets'},
           {src: 'src/strings/*', dest: 'dist/strings'},
           {src: 'src/config.json', dest: 'dist/'},
-          {src: 'README.MD', dest: 'dist/'},
+          {src: 'src/README.MD', dest: 'dist/'},
           {src: 'src/scripts/*', dest: 'dist/scripts/'}
         ]
       })
