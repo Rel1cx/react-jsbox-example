@@ -32,7 +32,7 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-copy-assets": "^2.0.1",
+    "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-eslint": "^6.0.0",
     "rollup-plugin-modify": "^3.0.0",
     "rollup-plugin-node-resolve": "^5.0.4",
