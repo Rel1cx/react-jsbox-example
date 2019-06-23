@@ -41,7 +41,7 @@ export default function HttpExample() {
 
   // Error state
   if (error) {
-    return <label style={styles.label} text={data.error.message} />
+    return <label style={styles.label} text={error} />
   }
 
   // Fetched content state
@@ -49,6 +49,7 @@ export default function HttpExample() {
 }
 
 const styles = {
+  label: $rect(0, width * 0.25, width, 50),
   loading: $rect(0, width * 0.3, width, 50),
   spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20)
 }

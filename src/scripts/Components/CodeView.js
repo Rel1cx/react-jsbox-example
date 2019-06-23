@@ -21,7 +21,7 @@ export default function CodeView(props) {
         #prism-code {
           white-space: pre-wrap;
           word-wrap: break-word;
-          font-size: 1.125rem;
+          font-size: 1.2rem;
         }
       </style>
     </head>
