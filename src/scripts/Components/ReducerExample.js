@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactJSBox from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 const counterReducer = (state, action) => {
