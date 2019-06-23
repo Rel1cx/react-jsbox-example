@@ -28,7 +28,7 @@ const useHttp = url => {
 
 export default function HttpExample() {
   const [data, loading, error] = useHttp(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
-  const content = articleToMarkdown(data.url, data.title, data.explanation)
+
   // Loading state
   if (loading) {
     return (
@@ -45,7 +45,7 @@ export default function HttpExample() {
   }
 
   // Fetched content state
-  return <markdown frame={$('HttpExample').frame} content={content} />
+  return <markdown frame={$('HttpExample').frame} content={articleToMarkdown(data.url, data.title, data.explanation)} />
 }
 
 const styles = {
