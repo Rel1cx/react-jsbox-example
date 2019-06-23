@@ -1,7 +1,7 @@
 import React from 'react'
 import { codeIcon } from '../constants'
 const { width, height } = $device.info.screen
-export default class ExampleView extends React.Component {
+export default class ExampleView extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

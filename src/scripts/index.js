@@ -33,7 +33,7 @@ const createContainers = idList =>
 // Create a root Container:
 $ui.render({
   props: {
-    title: '',
+    title: 'ReactJSBox Example',
     debugging: true
   },
   views: [
