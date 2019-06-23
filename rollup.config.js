@@ -28,7 +28,10 @@ const getBabelOptions = ({useESModules}) => ({
   exclude: '**/node_modules/**',
   runtimeHelpers: true,
   configFile: join(__dirname, './babel.config.js'),
-  plugins: ['babel-plugin-annotate-pure-calls', ['@babel/plugin-transform-runtime', {useESModules}]]
+  plugins: [
+    'babel-plugin-annotate-pure-calls',
+    ['@babel/plugin-transform-runtime', {useESModules}]
+  ]
 })
 
 export default [
@@ -53,7 +56,13 @@ export default [
       terser(),
       cleanup(),
       copy({
-        assets: ['src/assets', 'src/strings', 'src/config.json', 'src/README.MD', 'src/scripts']
+        assets: [
+          'src/assets',
+          'src/strings',
+          'src/config.json',
+          'src/README.MD',
+          'src/scripts'
+        ]
       })
 
       // Create an empty app.js script in scripts directory

@@ -5,7 +5,8 @@
   "main": "dist/main.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c && jsbox build dist"
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c && jsbox build dist"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "jsbox-cli": "^1.1.0",
     "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
     "rollup": "^1.16.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-cleanup": "^3.1.1",
