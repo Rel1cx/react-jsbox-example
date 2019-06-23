@@ -1,0 +1,1 @@
+export const articleToMarkdown = (img, title, content) => `![](${img})\n### ${title}\n${content}`

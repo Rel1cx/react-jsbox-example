@@ -1,5 +1,6 @@
 import React from 'react'
 import { apiKey } from '../constants'
+import { articleToMarkdown } from './helper'
 const { useState, useEffect } = React
 const { width, height } = $device.info.screen
 
@@ -27,13 +28,7 @@ const useHttp = url => {
 
 export default function HttpExample() {
   const [data, loading, error] = useHttp(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
-
-  const content = `
-  ![](${data.url})
-  ### ${data.title}
-  ${data.explanation}
-  `
-
+  const content = articleToMarkdown(data.url, data.title, data.explanation)
   // Loading state
   if (loading) {
     return (
@@ -54,6 +49,6 @@ export default function HttpExample() {
 }
 
 const styles = {
-  loading: $rect(0, height * 0.25, width, 50),
-  spinner: $rect(width * 0.5 - 10, height * 0.4, 20, 20)
+  loading: $rect(0, width * 0.3, width, 50),
+  spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20)
 }
