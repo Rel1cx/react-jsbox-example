@@ -9,6 +9,7 @@ const useHttp = url => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  // prettier-ignore
   useEffect(() => {
     void async function() {
       try {
@@ -40,8 +41,8 @@ export default function HttpExample() {
   }
 
   // Error state
-  if (error) {
-    return <label style={styles.label} text={error} />
+  if (error || data.error) {
+    return <label frame={styles.error} lines={5} font={$font(16)} text={(error || data.error).message} />
   }
 
   // Fetched content state
@@ -49,7 +50,7 @@ export default function HttpExample() {
 }
 
 const styles = {
-  label: $rect(0, width * 0.25, width, 50),
+  error: $rect(0, width * 0.25, width, 200),
   loading: $rect(0, width * 0.3, width, 50),
   spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20)
 }
