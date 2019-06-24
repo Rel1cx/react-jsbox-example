@@ -2,19 +2,9 @@ import React from 'react'
 import ReactJSBox from 'react-jsbox'
 import ExampleView from './Components/ExampleView'
 import CodeView from './Components/CodeView'
-import ClassExample from './Components/ClassExample'
-import ReducerExample from './Components/ReducerExample'
-import CacheExample from './Components/CacheExample'
-import HttpExample from './Components/HttpExample'
+import ExampleComps from './Examples'
 
 const { width, height } = $device.info.screen
-
-const Comps = {
-  ClassExample,
-  ReducerExample,
-  CacheExample,
-  HttpExample
-}
 
 const createContainers = idList =>
   idList.map(id => ({
@@ -41,7 +31,7 @@ $ui.render({
       type: 'list',
       props: {
         rowHeight: width,
-        data: createContainers(Object.keys(Comps))
+        data: createContainers(Object.keys(ExampleComps))
       },
       layout(make, view) {
         make.edges.equalTo(view.super.safeArea)
@@ -51,9 +41,9 @@ $ui.render({
 })
 
 // Create React elements and render them:
-for (const [CompName, Comp] of Object.entries(Comps)) {
+for (const [CompName, Comp] of Object.entries(ExampleComps)) {
   ReactJSBox.render(
-    <ExampleView demo={<Comp />} code={<CodeView content={$file.read(`scripts/Components/${CompName}.js`).string} />} />,
+    <ExampleView demo={<Comp />} code={<CodeView content={$file.read(`scripts/Examples/${CompName}.js`).string} />} />,
     $(CompName)
   )
 }

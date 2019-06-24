@@ -23,11 +23,11 @@ export default class ExampleView extends React.PureComponent {
           bgcolor={$color('clear')}
           events={{
             tapped: () => {
-              $audio.play({
-                id: 1104
-              })
               this.setState({
                 showCode: !this.state.showCode
+              })
+              $audio.play({
+                id: 1104
               })
             }
           }}
