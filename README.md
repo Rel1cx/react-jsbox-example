@@ -17,7 +17,9 @@ Requirements: jsbox-cli, code sync and build .box file
 usage: https://github.com/Dreamacro/jsbox-cli#readme
 
 ```sh
-npm run dev && npx jsbox watch dist
+npx jsbox set "your JSBox host ip"
+
+npm run dev
 ```
 
 ### Build
