@@ -3,14 +3,29 @@
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-## Install
+## Usage
+
+### Install
 
 ```sh
-install: npm install
+npm install
+```
 
-dev: npm run dev && npx jsbox watch dist
+### Dev
 
-build .box file: npm run build
+Requirements: jsbox-cli, code sync and build .box file
+usage: https://github.com/Dreamacro/jsbox-cli#readme
+
+```sh
+npx jsbox set "your JSBox host ip"
+
+npm run dev
+```
+
+### Build
+
+```sh
+npm run build
 ```
 
 ## Author
