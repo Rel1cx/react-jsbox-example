@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactJSBox from 'react-jsbox'
+import ReactJSBox, { useMotion } from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 export default function MotionExample() {
-  const [state] = ReactJSBox.useMotion()
+  const [state] = useMotion()
 
   return (
     <view frame={styles.container}>

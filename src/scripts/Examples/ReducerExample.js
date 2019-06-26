@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 const { width, height } = $device.info.screen
 
 const counterReducer = (state, action) => {
@@ -15,7 +15,7 @@ const counterReducer = (state, action) => {
 }
 
 export default function ReducerExample() {
-  const [state, dispatch] = React.useReducer(counterReducer, { count: 0 })
+  const [state, dispatch] = useReducer(counterReducer, { count: 0 })
   const listTemplate = {
     views: [
       {

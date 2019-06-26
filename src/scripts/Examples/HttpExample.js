@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { apiKey } from '../constants'
 import { articleToMarkdown } from '../helper'
-const { useState, useEffect } = React
 const { width, height } = $device.info.screen
 
 const useHttp = url => {
@@ -11,7 +10,7 @@ const useHttp = url => {
 
   // prettier-ignore
   useEffect(() => {
-    void async function() {
+    void async function () {
       try {
         setLoading(true)
         const { data } = await $http.get(url)

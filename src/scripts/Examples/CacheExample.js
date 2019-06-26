@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactJSBox from 'react-jsbox'
+import ReactJSBox, { useCache } from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 export default function CacheExample() {
-  const [count, setCount] = ReactJSBox.useCache('count', 0)
+  const [count, setCount] = useCache('count', 0)
   const listTemplate = {
     views: [
       {

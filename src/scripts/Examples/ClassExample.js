@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import ReactJSBox from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 // Create React Components:
-export default class ClassExample extends React.PureComponent {
+export default class ClassExample extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
