@@ -1,1 +1,1 @@
-require('./scripts/index')
+import './scripts/index'

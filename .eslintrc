@@ -1,7 +1,11 @@
 {
   "parser": "babel-eslint",
-  "extends": ["plugin:jsbox/default"],
-  "plugins": ["react-hooks"],
+  "extends": [
+    "plugin:jsbox/default"
+  ],
+  "plugins": [
+    "react-hooks"
+  ],
   "env": {
     "node": true
   },
@@ -9,7 +13,10 @@
     "JSBox": "writable"
   },
   "rules": {
-    "semi": [2, "never"],
+    "semi": [
+      2,
+      "never"
+    ],
     "arrow-parens": 0,
     "global-require": 0,
     "no-underscore-dangle": 0,
