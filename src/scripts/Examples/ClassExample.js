@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import ReactJSBox from 'react-jsbox'
 const { width, height } = $device.info.screen
 
 // Create React Components:

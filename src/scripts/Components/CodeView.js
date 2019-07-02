@@ -1,9 +1,10 @@
 import React from 'react'
-import ejs from 'ejs'
+import { pupa } from "../helper"
+
 const { width, height } = $device.info.screen
 const HLTemplate = $file.read('assets/prism.html').string
 export default function CodeView(props) {
   const { content } = props
-  const html = ejs.render(HLTemplate, { code: content })
+  const html = pupa(HLTemplate, { code: content })
   return <web frame={$rect(0, 0, width, width)} html={html} />
 }
