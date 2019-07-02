@@ -74,9 +74,9 @@
     "rimraf": "^2.6.3"
   },
   "dependencies": {
-    "ejs": "^2.6.2",
-    "react": "16.8.6",
-    "react-jsbox": "^0.0.36"
+    "escape-goat": "^2.1.0",
+    "react": "alpha",
+    "react-jsbox": "^0.0.38"
   },
   "staticFiles": {
     "staticPath": [
