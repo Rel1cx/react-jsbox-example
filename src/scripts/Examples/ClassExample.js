@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { listTemplate } from '../constants'
 const { width, height } = $device.info.screen
 
 // Create React Components:
@@ -7,23 +8,6 @@ export default class ClassExample extends PureComponent {
     super(props)
     this.state = {
       count: 0
-    }
-    this._listTemplate = {
-      props: {
-        bgcolor: $color('#fff')
-      },
-      views: [
-        {
-          type: 'label',
-          props: {
-            bgcolor: $color('#474b51'),
-            textColor: $color('#abb2bf'),
-            align: $align.center,
-            font: $font('iosevka', 24)
-          },
-          layout: $layout.fill
-        }
-      ]
     }
   }
 
@@ -43,7 +27,7 @@ export default class ClassExample extends PureComponent {
           radius={10}
           bgcolor={$color('#ededed')}
           data={['INCREASE', 'DECREASE', 'RESET']}
-          template={this._listTemplate}
+          template={listTemplate}
           events={{
             didSelect: (sender, { row }, data) =>
               this.setState({

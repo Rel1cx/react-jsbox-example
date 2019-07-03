@@ -1,23 +1,10 @@
 import React from 'react'
 import ReactJSBox, { useCache } from 'react-jsbox'
+import { listTemplate } from '../constants'
 const { width, height } = $device.info.screen
 
 export default function CacheExample() {
   const [count, setCount] = useCache('count', 0)
-  const listTemplate = {
-    views: [
-      {
-        type: 'label',
-        props: {
-          bgcolor: $color('#474b51'),
-          textColor: $color('#abb2bf'),
-          align: $align.center,
-          font: $font('iosevka', 24)
-        },
-        layout: $layout.fill
-      }
-    ]
-  }
 
   return (
     <view frame={styles.container}>

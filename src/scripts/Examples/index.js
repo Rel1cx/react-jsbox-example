@@ -1,13 +1,15 @@
 import ClassExample from './ClassExample'
 import ReducerExample from './ReducerExample'
 import CacheExample from './CacheExample'
+import JsxLiteralExample from './JsxLiteralExample'
 import HttpExample from './HttpExample'
-import WebExample from './WebExample'
+import WebviewExample from './WebviewExample'
 
 export default {
   ClassExample,
   ReducerExample,
   CacheExample,
+  JsxLiteralExample,
   HttpExample,
-  WebExample
+  WebviewExample
 }
