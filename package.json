@@ -19,8 +19,6 @@
       [
         "@babel/preset-env",
         {
-          "loose": true,
-          "modules": false,
           "targets": "iOS 11"
         }
       ],
@@ -75,8 +73,9 @@
   },
   "dependencies": {
     "escape-goat": "^2.1.0",
+    "htm": "^2.1.1",
     "react": "alpha",
-    "react-jsbox": "^0.0.38"
+    "react-jsbox": "^0.0.39"
   },
   "staticFiles": {
     "staticPath": [
