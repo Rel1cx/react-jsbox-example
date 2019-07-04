@@ -50,15 +50,15 @@
     "limit": 10240
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.4.5",
+    "@babel/runtime": "^7.5.0",
     "babel-eslint": "^10.0.2",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "eslint-plugin-jsbox": "^0.1.1",
@@ -75,7 +75,7 @@
     "escape-goat": "^2.1.0",
     "htm": "^2.1.1",
     "react": "alpha",
-    "react-jsbox": "^0.0.39"
+    "react-jsbox": "^0.0.40"
   },
   "staticFiles": {
     "staticPath": [
