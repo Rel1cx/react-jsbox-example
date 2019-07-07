@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npm run build; parcel watch src/main.js --no-source-maps --no-hmr & jsbox watch dist",
     "clean": "rimraf dist .cache",
-    "build": "npm run clean; parcel build src/main.js --no-source-maps && jsbox build dist"
+    "build": "npm run clean; parcel build src/main.js --no-source-maps && jsbox build dist",
+    "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}"
   },
   "keywords": [],
   "author": "",
@@ -58,7 +59,7 @@
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.5.0",
+    "@babel/runtime": "^7.5.1",
     "babel-eslint": "^10.0.2",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "eslint-plugin-jsbox": "^0.1.1",

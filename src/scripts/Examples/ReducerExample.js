@@ -16,16 +16,12 @@ const counterReducer = (state, action) => {
 }
 
 export default function ReducerExample() {
-  const [state, dispatch] = useReducer(counterReducer, { count: 0 })
+  const [state, dispatch] = useReducer(counterReducer, {
+    count: 0
+  })
   return (
     <view frame={styles.container}>
-      <label
-        frame={styles.text}
-        align={$align.center}
-        font={$font(26)}
-        text={String(state.count)}
-        autoFontSize={true}
-      />
+      <label frame={styles.text} align={$align.center} font={$font(26)} text={String(state.count)} autoFontSize={true} />
       <list
         frame={styles.list}
         scrollEnabled={false}

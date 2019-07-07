@@ -19,7 +19,11 @@ $ui.render({
 })
 
 export default function JsxLiteralExample() {
-  const [color, updateColor] = useImmer({ R: 50, G: 75, B: 100 })
+  const [color, updateColor] = useImmer({
+    R: 50,
+    G: 75,
+    B: 100
+  })
   const JSBoxColor = $rgb(color.R, color.G, color.B)
   return jsx`<view
       frame=${styles.container}
