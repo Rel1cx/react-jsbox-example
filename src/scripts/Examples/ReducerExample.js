@@ -22,7 +22,7 @@ export default function ReducerExample() {
       <label
         frame={styles.text}
         align={$align.center}
-        font={$font('ArialRoundedMTBold', 26)}
+        font={$font(26)}
         text={String(state.count)}
         autoFontSize={true}
       />

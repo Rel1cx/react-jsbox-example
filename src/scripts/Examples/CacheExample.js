@@ -11,7 +11,7 @@ export default function CacheExample() {
       <label
         frame={styles.text}
         align={$align.center}
-        font={$font('ArialRoundedMTBold', 26)}
+        font={$font(26)}
         text={String(count)}
         autoFontSize={true}
       />

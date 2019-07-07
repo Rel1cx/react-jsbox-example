@@ -1,35 +1,61 @@
 import { html as jsx } from 'htm/react'
-import React, { useState } from 'react'
-import ReactJSBox from 'react-jsbox'
-import { listTemplate } from '../constants'
+import { useImmer } from 'use-immer'
+import invert from 'invert-color'
 const { width, height } = $device.info.screen
 
+$ui.render({
+  props: {
+    title: 'JsxLiteralExample'
+  },
+  views: [
+    {
+      type: 'view',
+      props: {
+        id: 'root'
+      },
+      layout: $layout.fill
+    }
+  ]
+})
+
 export default function JsxLiteralExample() {
-  const [count, setCount] = useState(0)
-  return jsx`<view frame=${styles.container}>
-      <label
-        frame=${styles.text}
-        align=${$align.center}
-        font=${$font('ArialRoundedMTBold', 26)}
-        text=${String(count)}
-        autoFontSize=${true}
-      />
-      <list
-        frame=${styles.list}
-        scrollEnabled=${false}
-        radius=${5}
-        bgcolor=${$color('#ededed')}
-        data=${['INCREASE', 'DECREASE', 'RESET']}
-        template=${listTemplate}
-        events=${{
-          didSelect: (sender, { row }, data) => setCount(count => count + [1, -1, -count][row])
+  const [color, updateColor] = useImmer({ R: 50, G: 75, B: 100 })
+  const JSBoxColor = $rgb(color.R, color.G, color.B)
+  return jsx`<view
+      frame=${styles.container}
+      bgcolor=${JSBoxColor}
+  >
+  <label
+      frame=${styles.text}
+      align=${$align.center}
+      radius=${2}
+      text=${JSBoxColor.hexCode}
+      textColor=${JSBoxColor}
+      bgcolor=${$color(invert(JSBoxColor.hexCode))}
+  />
+  ${Object.keys(color).map(
+    (key, idx) => jsx`<slider
+        key=${key}
+        frame=${{
+          ...styles.slider,
+          y: width * 0.4 + 50 * idx
         }}
-      />
-    </view>`
+    value=${color[key]}
+    min=${0}
+    max=${255}
+    events=${{
+      changed(sender) {
+        updateColor(draft => {
+          draft[key] = Math.round(sender.value)
+        })
+      }
+    }} />`
+  )}
+</view>`
 }
 
 const styles = {
   container: $rect(0, 0, width, width),
-  text: $rect(0, 64, width, 30),
-  list: $rect(0, width * 0.5, width, 132)
+  text: $rect(width * 0.5 - 50, 64, 100, 30),
+  slider: $rect(20, width * 0.4, width - 40, 50)
 }

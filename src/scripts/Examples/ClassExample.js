@@ -17,7 +17,7 @@ export default class ClassExample extends PureComponent {
         <label
           frame={styles.text}
           align={$align.center}
-          font={$font('ArialRoundedMTBold', 26)}
+          font={$font(26)}
           text={String(this.state.count)}
           autoFontSize={true}
         />

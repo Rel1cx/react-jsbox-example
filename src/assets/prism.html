@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="user-scalable=no" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/themes/prism-tomorrow.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" />
     <title>Code</title>
     <style>
         * {
@@ -20,16 +20,17 @@
         #prism-code {
             white-space: pre-wrap;
             word-wrap: break-word;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            font-family: "menlo";
         }
     </style>
 </head>
 
 <body>
     <pre id="prism-pre" class="language-jsx"><code id="prism-code" class="language-jsx"><%=code%></code></pre>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/components/prism-javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.16.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-jsx.min.js"></script>
     <script>
         Prism.highlightAll(true)
     </script>

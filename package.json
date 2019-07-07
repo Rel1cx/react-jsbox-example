@@ -74,8 +74,11 @@
   "dependencies": {
     "escape-goat": "^2.1.0",
     "htm": "^2.1.1",
+    "immer": "^3.1.3",
+    "invert-color": "^2.0.0",
     "react": "alpha",
-    "react-jsbox": "^0.0.40"
+    "react-jsbox": "^0.0.40",
+    "use-immer": "^0.3.2"
   },
   "staticFiles": {
     "staticPath": [
