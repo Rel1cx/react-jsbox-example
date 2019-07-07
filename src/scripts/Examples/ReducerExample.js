@@ -21,7 +21,13 @@ export default function ReducerExample() {
   })
   return (
     <view frame={styles.container}>
-      <label frame={styles.text} align={$align.center} font={$font(26)} text={String(state.count)} autoFontSize={true} />
+      <label
+        frame={styles.text}
+        align={$align.center}
+        font={$font(26)}
+        text={String(state.count)}
+        autoFontSize={true}
+      />
       <list
         frame={styles.list}
         scrollEnabled={false}

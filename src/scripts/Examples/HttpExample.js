@@ -33,7 +33,12 @@ export default function HttpExample() {
   if (loading) {
     return (
       <>
-        <label frame={styles.loading} font={$font(48)} text={'APOD'} align={$align.center} />
+        <label
+          frame={styles.loading}
+          font={$font(48)}
+          text={'APOD'}
+          align={$align.center}
+        />
         <spinner frame={styles.spinner} loading={loading} />
       </>
     )
