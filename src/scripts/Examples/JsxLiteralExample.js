@@ -2,28 +2,8 @@ import { html as jsx } from 'htm/react'
 import { useImmer } from 'use-immer'
 import invert from 'invert-color'
 const { width, height } = $device.info.screen
-
-$ui.render({
-  props: {
-    title: 'JsxLiteralExample'
-  },
-  views: [
-    {
-      type: 'view',
-      props: {
-        id: 'root'
-      },
-      layout: $layout.fill
-    }
-  ]
-})
-
 export default function JsxLiteralExample() {
-  const [color, updateColor] = useImmer({
-    R: 50,
-    G: 75,
-    B: 100
-  })
+  const [color, updateColor] = useImmer({ R: 50, G: 75, B: 100 })
   const JSBoxColor = $rgb(color.R, color.G, color.B)
   return jsx`<view
       frame=${styles.container}
@@ -41,19 +21,19 @@ export default function JsxLiteralExample() {
     (key, idx) => jsx`<slider
         key=${key}
         frame=${{
-          ...styles.slider,
-          y: width * 0.4 + 50 * idx
-        }}
+        ...styles.slider,
+        y: width * 0.4 + 50 * idx
+      }}
     value=${color[key]}
     min=${0}
     max=${255}
     events=${{
-      changed(sender) {
-        updateColor(draft => {
-          draft[key] = Math.round(sender.value)
-        })
-      }
-    }} />`
+        changed(sender) {
+          updateColor(draft => {
+            draft[key] = Math.round(sender.value)
+          })
+        }
+      }} />`
   )}
 </view>`
 }
