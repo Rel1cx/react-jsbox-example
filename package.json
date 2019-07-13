@@ -52,14 +52,14 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.0",
+    "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
-    "@babel/preset-env": "^7.5.2",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.5.2",
+    "@babel/runtime": "^7.5.4",
     "babel-eslint": "^10.0.2",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "eslint-plugin-jsbox": "^0.1.1",
@@ -78,7 +78,7 @@
     "immer": "^3.1.3",
     "invert-color": "^2.0.0",
     "react": "alpha",
-    "react-jsbox": "^0.0.41",
+    "react-jsbox": "^0.0.42",
     "use-immer": "^0.3.2"
   },
   "staticFiles": {
