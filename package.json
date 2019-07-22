@@ -79,7 +79,7 @@
     "invert-color": "^2.0.0",
     "react": "alpha",
     "react-jsbox": "^0.0.43",
-    "use-immer": "^0.3.2"
+    "use-immer": "^0.3.3"
   },
   "staticFiles": {
     "staticPath": [
