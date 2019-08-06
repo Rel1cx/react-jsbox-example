@@ -52,12 +52,12 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
+    "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.5.4",
     "babel-eslint": "^10.0.2",
@@ -67,19 +67,19 @@
     "jsbox-cli": "^1.2.1",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
-    "parcel-plugin-static-files-copy": "^2.1.2",
+    "parcel-plugin-static-files-copy": "^2.2.0",
     "parcel-plugin-url-loader": "^1.3.1",
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3"
   },
   "dependencies": {
     "escape-goat": "^2.1.0",
-    "htm": "^2.1.1",
+    "htm": "^2.2.1",
     "immer": "^3.1.3",
     "invert-color": "^2.0.0",
     "react": "alpha",
     "react-jsbox": "^0.0.43",
-    "use-immer": "^0.3.2"
+    "use-immer": "^0.3.3"
   },
   "staticFiles": {
     "staticPath": [
