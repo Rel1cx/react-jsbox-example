@@ -11,9 +11,6 @@ export default class ExampleView extends React.PureComponent {
   render() {
     return (
       <>
-        {/* <view frame={$rect(0, 0, width, width)} hidden={!this.state.showCode}>{this.props.code}</view>
-        <view frame={$rect(0, 0, width, width)} hidden={this.state.showCode}>{this.props.demo}</view> */}
-
         {this.state.showCode ? this.props.code : this.props.demo}
         <button
           frame={$rect(width - 50, width - 40, 40, 35)}
