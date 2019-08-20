@@ -5094,10 +5094,10 @@ react-is@^16.8.1:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha1-IcqVYTmarQ/xp3AcAWg+jKmB7cs=
 
-react-jsbox@0.0.49:
-  version "0.0.49"
-  resolved "https://registry.npm.taobao.org/react-jsbox/download/react-jsbox-0.0.49.tgz#ac71f21a95c6e560902c411e6505b0379436aae0"
-  integrity sha1-rHHyGpXG5WCQLEEeZQWwN5Q2quA=
+react-jsbox@0.0.52:
+  version "0.0.52"
+  resolved "https://registry.yarnpkg.com/react-jsbox/-/react-jsbox-0.0.52.tgz#2382ab6a83bc6a5190e0d0397e8951419495c707"
+  integrity sha512-xGP0gnkcWGOUcj+RDR8/UtIACEOhMq3Qgpj5PauFmGP2KDYuRlf5LsdncqM5sdPRCIviFhZrQLC/LuwVuxrQYA==
   dependencies:
     react-reconciler "^0.21.0"
 
