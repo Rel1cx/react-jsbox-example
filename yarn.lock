@@ -2515,10 +2515,10 @@ eslint-plugin-jsbox@^0.1.1:
   dependencies:
     requireindex "^1.2.0"
 
-eslint-plugin-react-hooks@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-react-hooks/download/eslint-plugin-react-hooks-1.7.0.tgz#6210b6d5a37205f0b92858f895a4e827020a7d04"
-  integrity sha1-YhC21aNyBfC5KFj4laToJwIKfQQ=
+eslint-plugin-react-hooks@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.0.1.tgz#e898ec26a0a335af6f7b0ad1f0bedda7143ed756"
+  integrity sha512-xir+3KHKo86AasxlCV8AHRtIZPHljqCRRUYgASkbatmt0fad4+5GgC7zkT7o/06hdKM6MIwp8giHVXqBPaarHQ==
 
 eslint-scope@3.7.1:
   version "3.7.1"
@@ -5094,10 +5094,10 @@ react-is@^16.8.1:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha1-IcqVYTmarQ/xp3AcAWg+jKmB7cs=
 
-react-jsbox@0.0.49:
-  version "0.0.49"
-  resolved "https://registry.npm.taobao.org/react-jsbox/download/react-jsbox-0.0.49.tgz#ac71f21a95c6e560902c411e6505b0379436aae0"
-  integrity sha1-rHHyGpXG5WCQLEEeZQWwN5Q2quA=
+react-jsbox@^0.0.52:
+  version "0.0.52"
+  resolved "https://registry.yarnpkg.com/react-jsbox/-/react-jsbox-0.0.52.tgz#2382ab6a83bc6a5190e0d0397e8951419495c707"
+  integrity sha512-xGP0gnkcWGOUcj+RDR8/UtIACEOhMq3Qgpj5PauFmGP2KDYuRlf5LsdncqM5sdPRCIviFhZrQLC/LuwVuxrQYA==
   dependencies:
     react-reconciler "^0.21.0"
 
