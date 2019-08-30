@@ -6,14 +6,14 @@ import ExampleComps from './Examples'
 
 const { width, height } = $device.info.screen
 
-const createContainers = idList =>
-  idList.map(id => ({
-    title: id,
+const createContainers = containerNames =>
+  containerNames.map(name => ({
+    title: name,
     rows: [
       {
         type: 'view',
         props: {
-          id
+          id: name
         },
         layout: $layout.fill
       }
@@ -21,6 +21,7 @@ const createContainers = idList =>
   }))
 
 // Create a root Container:
+$app.keyboardToolbarEnabled = true
 $ui.render({
   props: {
     title: 'ReactJSBox Example',
