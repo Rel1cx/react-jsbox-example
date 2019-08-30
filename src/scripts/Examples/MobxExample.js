@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useCallback } from 'react'
 import { observable, autorun } from 'mobx'
 import { observer } from 'mobx-react-lite'
 const { width, height } = $device.info.screen
@@ -11,18 +11,22 @@ autorun(() => {
     const size = todoList.size
     const scroll = $('scroll')
     if (!scroll) return
-    scroll.contentSize = $size(width, size * (TodoItemHeight + TodoItemMargin))
+    scroll.contentSize = getScrollContentSize(size)
     $audio.play({ id: 1104 })
 })
 
+function getScrollContentSize(itemNum) {
+    return $size(width, itemNum * (TodoItemHeight + TodoItemMargin))
+}
+
 function MobxExample() {
-    const inputRef = React.useRef()
-    const addTodo = React.useCallback(() => {
+    const inputRef = useRef()
+    const addTodo = useCallback(() => {
         if (inputRef.current.text === '') return
         todoList.set(inputRef.current.text, false)
         inputRef.current.text = ''
     }, [])
-    const toggleTodo = React.useCallback(todo => {
+    const toggleTodo = useCallback(todo => {
         todoList.set(todo, !todoList.get(todo))
     }, [])
     const deleteTodo = name => todoList.has(name) && todoList.delete(name)
@@ -37,7 +41,7 @@ function MobxExample() {
                     tapped: addTodo
                 }}
             />
-            <scroll frame={styles.scroll} id="scroll">
+            <scroll frame={styles.scroll} id="scroll" contentSize={getScrollContentSize(todoList.size)}>
                 {Array.from(todoList).map(([todo, done], index) => (
                     <label
                         frame={$rect(0, index * (TodoItemHeight + TodoItemMargin), width, TodoItemHeight)}
