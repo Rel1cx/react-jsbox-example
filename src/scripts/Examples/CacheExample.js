@@ -8,7 +8,13 @@ export default function CacheExample() {
 
   return (
     <view frame={styles.container}>
-      <label frame={styles.text} align={$align.center} font={$font(26)} text={String(count)} autoFontSize={true} />
+      <label
+        frame={styles.text}
+        align={$align.center}
+        font={$font(26)}
+        text={String(count)}
+        autoFontSize
+      />
       <list
         frame={styles.list}
         scrollEnabled={false}

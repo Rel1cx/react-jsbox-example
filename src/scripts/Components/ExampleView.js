@@ -8,6 +8,7 @@ export default class ExampleView extends React.PureComponent {
       showCode: false
     }
   }
+
   render() {
     return (
       <>

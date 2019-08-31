@@ -26,7 +26,7 @@ export default function ReducerExample() {
         align={$align.center}
         font={$font(26)}
         text={String(state.count)}
-        autoFontSize={true}
+        autoFontSize
       />
       <list
         frame={styles.list}

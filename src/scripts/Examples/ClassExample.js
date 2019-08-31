@@ -19,7 +19,7 @@ export default class ClassExample extends PureComponent {
           align={$align.center}
           font={$font(26)}
           text={String(this.state.count)}
-          autoFontSize={true}
+          autoFontSize
         />
         <list
           frame={styles.list}
