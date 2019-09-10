@@ -13,8 +13,8 @@ npm install
 
 ### Dev
 
-Requirements: jsbox-cli, code sync and build .box file
-usage: https://github.com/Dreamacro/jsbox-cli#readme
+Requirements: jsbox-cli. code sync and build .box file
+usage: https://www.npmjs.com/package/jsbox-cli
 
 ```sh
 npx jsbox set "your JSBox host ip"
