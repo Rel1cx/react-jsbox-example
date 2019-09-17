@@ -4,11 +4,14 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "dev": "npm run build; parcel watch src/main.js --no-source-maps --no-hmr & jsbox watch dist",
-    "clean": "rimraf dist .cache",
-    "build": "npm run clean; parcel build src/main.js --no-source-maps && npm run build:box",
+    "dev": "run-p bundle watch",
+    "watch": "jsbox watch dist",
+    "bundle": "parcel watch src/main.js --no-source-maps --no-hmr",
+    "clean": "rimraf .cache",
+    "build": "npm run clean && parcel build src/main.js --no-source-maps",
     "build:box": "jsbox build dist",
-    "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}"
+    "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -66,6 +69,7 @@
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^2.0.1",
     "jsbox-cli": "^1.2.1",
+    "npm-run-all": "^4.1.5",
     "parcel": "^1.12.3",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-static-files-copy": "^2.2.1",
@@ -77,12 +81,12 @@
     "core-js": "3.2.1",
     "escape-goat": "^2.1.0",
     "htm": "^2.2.1",
-    "immer": "^3.2.0",
+    "immer": "^4.0.0",
     "invert-color": "^2.0.0",
     "mobx": "^5.13.0",
     "mobx-react-lite": "^1.4.1",
     "react": "16.9.0",
-    "react-jsbox": "0.0.55-beta",
+    "react-jsbox": "0.0.56",
     "use-immer": "^0.3.3"
   },
   "staticFiles": {

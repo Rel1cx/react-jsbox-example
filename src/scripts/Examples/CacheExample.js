@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactJSBox, { useCache } from 'react-jsbox'
+import { useCache } from 'react-jsbox'
 import { listTemplate } from '../constants'
 const { width, height } = $device.info.screen
 
