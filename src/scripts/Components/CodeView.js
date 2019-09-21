@@ -1,5 +1,5 @@
 import React from 'react'
-import { pupa } from '../helper'
+import pupa from 'pupa'
 
 const { width } = $device.info.screen
 
