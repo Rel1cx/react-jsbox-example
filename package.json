@@ -79,7 +79,7 @@
   },
   "dependencies": {
     "core-js": "3.2.1",
-    "escape-goat": "^2.1.0",
+    "escape-goat": "^2.1.1",
     "htm": "^2.2.1",
     "immer": "^4.0.0",
     "invert-color": "^2.0.0",
