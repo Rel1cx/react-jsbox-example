@@ -86,7 +86,7 @@
     "mobx": "^5.13.0",
     "mobx-react-lite": "^1.4.1",
     "pupa": "github:nicify/pupa#master",
-    "react": "^16.10.0",
+    "react": "^16.10.2",
     "react-jsbox": "^0.0.58",
     "use-immer": "^0.3.4"
   },
