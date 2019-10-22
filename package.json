@@ -78,7 +78,7 @@
     "rimraf": "^3.0.0"
   },
   "dependencies": {
-    "core-js": "^3.2.1",
+    "core-js": "^3.3.3",
     "escape-goat": "^2.1.1",
     "htm": "^2.2.1",
     "immer": "^4.0.1",
