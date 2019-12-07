@@ -4,7 +4,6 @@ import CacheExample from './CacheExample'
 import MobxExample from './MobxExample'
 import JsxLiteralExample from './JsxLiteralExample'
 import HttpExample from './HttpExample'
-import StackViewExample from './StackViewExample'
 import WebViewExample from './WebViewExample'
 
 export default {
@@ -14,6 +13,5 @@ export default {
   MobxExample,
   JsxLiteralExample,
   HttpExample,
-  StackViewExample,
   WebViewExample
 }
