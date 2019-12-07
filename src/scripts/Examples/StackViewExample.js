@@ -1,6 +1,6 @@
 import React from 'react'
 const { width } = $device.info.screen
-
+const palette = ['#3f51b5', '#4CAF50', '#FF9800']
 export default function StackViewExample() {
     return (
         <stack
@@ -9,14 +9,15 @@ export default function StackViewExample() {
             distribution={$stackViewDistribution.fillEqually}
             alignment={$stackViewAlignment.fill}
             spacing={10}
-            baselineRelative={false}
-            layoutMarginsRelative={false}
+            baselineRelative={true}
+            layoutMarginsRelative={true}
         >
-            {[1, 2, 3].map((item) => <label
-                key={item}
-                text={String(item)}
+            {[...Array(3).keys()].map((i) => <label
+                key={i}
+                text={String(i + 1)}
                 align={$align.center}
-                bgcolor={$rgba(0, 0, 0, 0.35)}
+                textColor={$color('white')}
+                bgcolor={$color(palette[i])}
             />)}
         </stack>
     )

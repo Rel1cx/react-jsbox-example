@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox-example",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "description": "",
   "main": "dist/main.js",
   "scripts": {
@@ -66,15 +66,15 @@
     "limit": 10240
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
     "@babel/preset-react": "^7.7.4",
-    "@babel/runtime": "^7.7.4",
+    "@babel/runtime": "^7.7.5",
     "@commitlint/config-conventional": "^8.2.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
@@ -94,7 +94,7 @@
     "standard-version": "^7.0.1"
   },
   "dependencies": {
-    "core-js": "^3.4.2",
+    "core-js": "^3.4.7",
     "escape-goat": "^2.1.1",
     "htm": "^2.2.1",
     "immer": "^5.0.0",
@@ -103,7 +103,7 @@
     "mobx-react-lite": "^1.5.1",
     "pupa": "github:nicify/pupa#master",
     "react": "^16.12.0",
-    "react-jsbox": "0.0.62",
+    "react-jsbox": "1.0.0-beta",
     "use-immer": "^0.3.5"
   },
   "staticFiles": {
