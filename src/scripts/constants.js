@@ -1,4 +1,4 @@
-export const apiKey = 'CgmUYY7jA6RULFVV94KPFgsi3kq2LEUn3Kn6TY8L'
+export const apiKey = 'awVphvq9cwPg9f1F1ij20tUaILmj0t3KP6DTWVDW'
 
 export const codeIcon = $file.read('assets/code.png').image
 
