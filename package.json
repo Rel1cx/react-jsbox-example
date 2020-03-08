@@ -95,7 +95,7 @@
   },
   "dependencies": {
     "core-js": "^3.4.2",
-    "escape-goat": "^2.1.1",
+    "escape-goat": "^3.0.0",
     "htm": "^2.2.1",
     "immer": "^6.0.1",
     "invert-color": "^2.0.0",
