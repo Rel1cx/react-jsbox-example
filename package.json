@@ -79,7 +79,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "escape-goat": "^3.0.0",
     "htm": "^3.0.3",
     "immer": "^6.0.1",
     "invert-color": "^2.0.0",
@@ -87,7 +86,7 @@
     "mobx-react-lite": "^1.5.2",
     "pupa": "github:nicify/pupa#master",
     "react": "^16.13.0",
-    "react-jsbox": "^1.0.1",
+    "react-jsbox": "^1.0.2",
     "use-immer": "^0.3.5"
   },
   "staticFiles": {
