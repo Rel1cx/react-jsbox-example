@@ -14,7 +14,7 @@ export default function LottieExample() {
 
   useEffect(() => {
     lottieRef.current.play()
-  }, [options])
+  }, [])
 
   return (
     <view frame={styles.container}>
@@ -22,7 +22,7 @@ export default function LottieExample() {
       <stepper
         frame={styles.stepper}
         max={5}
-        min={0}
+        min={0.25}
         value={options.speed}
         step={0.25}
         autorepeat={true}
