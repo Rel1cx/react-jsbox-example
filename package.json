@@ -87,7 +87,7 @@
     "pupa": "github:nicify/pupa#master",
     "react": "^16.13.0",
     "react-jsbox": "^1.0.2",
-    "use-immer": "^0.3.5"
+    "use-immer": "^0.4.0"
   },
   "staticFiles": {
     "staticPath": [
