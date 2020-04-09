@@ -83,7 +83,7 @@
     "immer": "^6.0.1",
     "invert-color": "^2.0.0",
     "mobx": "^5.15.4",
-    "mobx-react-lite": "^1.5.2",
+    "mobx-react-lite": "^2.0.5",
     "pupa": "github:nicify/pupa#master",
     "react": "^16.13.0",
     "react-jsbox": "^1.0.2",
