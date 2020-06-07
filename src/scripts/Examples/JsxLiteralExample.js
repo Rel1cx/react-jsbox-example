@@ -21,19 +21,19 @@ export default function JsxLiteralExample() {
     (key, idx) => jsx`<slider
         key=${key}
         frame=${{
-        ...styles.slider,
-        y: width * 0.4 + 50 * idx
-      }}
+          ...styles.slider,
+          y: width * 0.4 + 50 * idx,
+        }}
     value=${color[key]}
     min=${0}
     max=${255}
     events=${{
-        changed(sender) {
-          updateColor(draft => {
-            draft[key] = Math.round(sender.value)
-          })
-        }
-      }} />`
+      changed(sender) {
+        updateColor((draft) => {
+          draft[key] = Math.round(sender.value)
+        })
+      },
+    }} />`
   )}
 </view>`
 }
@@ -41,5 +41,5 @@ export default function JsxLiteralExample() {
 const styles = {
   container: $rect(0, 0, width, width),
   text: $rect(width * 0.5 - 50, 64, 100, 30),
-  slider: $rect(20, width * 0.4, width - 40, 50)
+  slider: $rect(20, width * 0.4, width - 40, 50),
 }

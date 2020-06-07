@@ -3,7 +3,7 @@ import { apiKey } from '../constants'
 import { articleToMarkdown } from '../helper'
 const { width, height } = $device.info.screen
 
-const useHttp = url => {
+const useHttp = (url) => {
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -51,5 +51,5 @@ export default function HttpExample() {
 const styles = {
   message: $rect(0, width * 0.25, width, 200),
   loading: $rect(0, width * 0.3, width, 50),
-  spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20)
+  spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20),
 }
