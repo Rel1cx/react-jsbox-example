@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useEffect } from 'react'
+import React, { useRef, useLayoutEffect } from 'react'
 import { enableMapSet } from 'immer'
 import { useImmer } from 'use-immer'
 import { useUpdateEffect } from 'react-jsbox'
@@ -35,7 +35,7 @@ export default function TodoExample() {
     scroll.contentSize = calcScrollContentSize(todoList.size)
   }, [todoList.size])
 
-  useUpdateEffect($device.taptic, [todoList])
+  useUpdateEffect(() => $device.taptic(), [todoList])
 
   return (
     <view frame={styles.container}>
