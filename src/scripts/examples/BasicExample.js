@@ -37,5 +37,5 @@ export default class BasicExample extends Component {
 const styles = {
   container: $rect(0, 0, width, width),
   text: $rect(0, 64, width, 30),
-  list: $rect(10, width * 0.5, width - 20, 132),
+  list: $rect(0, width * 0.5, width, 132),
 }

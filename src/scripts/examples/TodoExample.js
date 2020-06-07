@@ -1,11 +1,11 @@
-import React, { useRef, useLayoutEffect } from 'react'
+import React, { useRef, useLayoutEffect, useMemo, useEffect } from 'react'
 import { enableMapSet } from 'immer'
 import { useImmer } from 'use-immer'
 import { useUpdateEffect } from 'react-jsbox'
 
 enableMapSet()
 
-const { width, height } = $device.info.screen
+const { width } = $device.info.screen
 const TodoItemHeight = 50
 const TodoItemMargin = 5
 
@@ -28,6 +28,7 @@ export default function TodoExample() {
   const [todoList, setTodoList] = useImmer(new Map())
   const inputRef = useRef()
   const scrollRef = useRef()
+  const todoItem = useMemo(() => Array.from(todoList).reverse(), [todoList])
 
   useLayoutEffect(() => {
     const scroll = scrollRef.current
@@ -55,7 +56,7 @@ export default function TodoExample() {
         }}
       />
       <scroll frame={styles.scroll} ref={scrollRef} id="scroll" contentSize={calcScrollContentSize(todoList.size)}>
-        {Array.from(todoList).map(([todo, done], index) => (
+        {todoItem.map(([todo, done], index) => (
           <label
             frame={calcLabelFrame(index)}
             key={todo}
