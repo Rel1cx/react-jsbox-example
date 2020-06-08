@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useMemo } from 'react'
 import useSWR from 'swr'
 import { apiKey } from '../constants'
 import { articleToMarkdown } from '../helper'
@@ -23,9 +23,12 @@ const Loading = () => {
 }
 
 const Content = () => {
-  const { data } = useSWR(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`, fetcher, { suspense: true })
-  // Fetched content state
-  return <markdown frame={styles.container} content={articleToMarkdown(data.url, data.title, data.explanation)} />
+  const { data } = useSWR(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`, fetcher, {
+    suspense: true,
+  })
+  const content = useMemo(() => articleToMarkdown(data.url, data.title, data.explanation), [data])
+  
+  return <markdown frame={styles.content} content={content} />
 }
 
 export default function HttpExample() {
@@ -37,8 +40,7 @@ export default function HttpExample() {
 }
 
 const styles = {
-  container: $rect(0, 0, width, width),
-  message: $rect(0, width * 0.25, width, 200),
+  content: $rect(0, 0, width, width),
   loading: $rect(0, width * 0.3, width, 50),
   spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20),
 }
