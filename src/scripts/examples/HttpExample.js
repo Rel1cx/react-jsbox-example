@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import useSWR from 'swr'
 import { apiKey } from '../constants'
 import { articleToMarkdown } from '../helper'
@@ -13,26 +13,27 @@ async function fetcher(url) {
   return data
 }
 
-export default function HttpExample() {
-  const { data, error } = useSWR(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`, fetcher)
+const Loading = () => {
+  return (
+    <>
+      <label frame={styles.loading} font={$font(48)} text="APOD" align={$align.center} />
+      <spinner frame={styles.spinner} loading={true} />
+    </>
+  )
+}
 
-  // Error state
-  if (error) {
-    return <label frame={styles.message} lines={5} font={$font(16)} text={error.message} />
-  }
-
-  // Loading state
-  if (!data) {
-    return (
-      <>
-        <label frame={styles.loading} font={$font(48)} text="APOD" align={$align.center} />
-        <spinner frame={styles.spinner} loading={true} />
-      </>
-    )
-  }
-
+const Content = () => {
+  const { data } = useSWR(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`, fetcher, { suspense: true })
   // Fetched content state
   return <markdown frame={styles.container} content={articleToMarkdown(data.url, data.title, data.explanation)} />
+}
+
+export default function HttpExample() {
+  return (
+    <Suspense fallback={Loading}>
+      <Content />
+    </Suspense>
+  )
 }
 
 const styles = {
