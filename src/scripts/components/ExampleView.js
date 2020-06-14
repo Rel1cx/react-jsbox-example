@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react'
 import { codeIcon } from '../constants'
-const { width, height } = $device.info.screen
+const { width } = $device.info.screen
 
 const ExampleView = ({ demo, code }) => {
   const [showCode, setShowCode] = useState(false)

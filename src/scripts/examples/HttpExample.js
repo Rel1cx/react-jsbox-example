@@ -26,8 +26,9 @@ const Content = () => {
   const { data } = useSWR(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`, fetcher, {
     suspense: true,
   })
+
   const content = useMemo(() => articleToMarkdown(data.url, data.title, data.explanation), [data])
-  
+
   return <markdown frame={styles.content} content={content} />
 }
 

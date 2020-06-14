@@ -1,35 +1,41 @@
 import { html as jsx } from 'htm/react'
 import { useImmer } from 'use-immer'
 import invert from 'invert-color'
-const { width, height } = $device.info.screen
+
+const { width } = $device.info.screen
+
 export default function JsxLiteralExample() {
-  const [color, updateColor] = useImmer({ R: 50, G: 75, B: 100 })
-  const JSBoxColor = $rgb(color.R, color.G, color.B)
+  const [components, updateComponents] = useImmer(
+    $color({ light: '#FFFFFF', dark: '#000000' }).components
+  )
+
+  const color = $rgb(components.red, components.green, components.blue)
+
   return jsx`<view
       frame=${styles.container}
-      bgcolor=${JSBoxColor}
+      bgcolor=${color}
   >
   <label
       frame=${styles.text}
       align=${$align.center}
       radius=${2}
-      text=${JSBoxColor.hexCode}
-      textColor=${JSBoxColor}
-      bgcolor=${$color(invert(JSBoxColor.hexCode))}
+      text=${color.hexCode}
+      textColor=${color}
+      bgcolor=${$color(invert(color.hexCode))}
   />
-  ${Object.keys(color).map(
+  ${['red', 'green', 'blue'].map(
     (key, idx) => jsx`<slider
         key=${key}
         frame=${{
           ...styles.slider,
           y: width * 0.4 + 50 * idx,
         }}
-    value=${color[key]}
+    value=${components[key]}
     min=${0}
     max=${255}
     events=${{
       changed(sender) {
-        updateColor((draft) => {
+        updateComponents((draft) => {
           draft[key] = Math.round(sender.value)
         })
       },

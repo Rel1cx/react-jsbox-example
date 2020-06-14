@@ -8,6 +8,7 @@
     "types": 1
   },
   "settings": {
+    "theme": "auto",
     "minSDKVer": "1.0.0",
     "minOSVer": "12.0.0",
     "idleTimerDisabled": false,
