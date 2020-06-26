@@ -13,7 +13,7 @@ const theme = {
   }
 }
 
-export default function CacheExample() {
+export default function AnimateExample() {
   const [mode, setMode] = useState('light')
   const viewProps = theme[mode]
 
