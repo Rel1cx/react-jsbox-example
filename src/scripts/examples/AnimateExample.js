@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useImmer } from 'use-immer'
 import { UIViewAnimationOptionCurveEaseInOut, UIViewAnimationOptionAllowUserInteraction } from '../constants'
 const { width } = $device.info.screen
 
@@ -10,7 +9,7 @@ const theme = {
   },
   dark: {
     backgroundColor: '#222222',
-    moonShadowOffset: 260
+    moonShadowOffset: 100
   }
 }
 
@@ -22,8 +21,12 @@ export default function CacheExample() {
     <view frame={styles.container}
       bgcolor={$color(viewProps.backgroundColor)}
       animate={{
-        duration: 0.6,
-        options: UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction
+        duration: 0.4,
+        delay: 0.2,
+        options: UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction,
+        completion() {
+          $device.taptic()
+        }
       }}
     >
       <view
@@ -42,16 +45,11 @@ export default function CacheExample() {
         <view
           id="moon-shadow"
           radius={80}
-          frame={{ x: 320 - viewProps.moonShadowOffset, y: 0, width: 160, height: 160 }}
+          frame={{ x: 160 - viewProps.moonShadowOffset, y: 0, width: 160, height: 160 }}
           bgcolor={$color('#000')}
           animate={{
-            duration: 0.6,
-            damping: 1,
-            velocity: 2,
-            options: UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction,
-            completion() {
-              $device.taptic()
-            }
+            duration: 0.4,
+            options: UIViewAnimationOptionAllowUserInteraction
           }}
         />
       </view>
