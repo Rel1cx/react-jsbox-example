@@ -55,7 +55,12 @@ export default function TodoExample() {
           },
         }}
       />
-      <scroll frame={styles.scroll} ref={scrollRef} id="scroll" contentSize={calcScrollContentSize(todoList.size)}>
+      <scroll
+        frame={styles.scroll}
+        ref={scrollRef}
+        id="scroll"
+        contentSize={calcScrollContentSize(todoList.size)}
+      >
         {todoItem.map(([todo, done], index) => (
           <label
             frame={calcLabelFrame(index)}

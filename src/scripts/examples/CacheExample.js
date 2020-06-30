@@ -1,7 +1,8 @@
 import React from 'react'
 import { useCache } from 'react-jsbox'
 import { listTemplate } from '../constants'
-const { width, height } = $device.info.screen
+const { width } = $device.info.screen
+const listItem = ['INCREASE', 'DECREASE', 'RESET']
 
 export default function CacheExample() {
   const [count, setCount] = useCache('count', 0)
@@ -11,14 +12,15 @@ export default function CacheExample() {
       <label
         frame={styles.text}
         align={$align.center}
-        font={$font(26)} text={String(count)}
+        font={$font(26)}
+        text={String(count)}
         autoFontSize
       />
       <list
         frame={styles.list}
         scrollEnabled={false}
         radius={5}
-        data={['INCREASE', 'DECREASE', 'RESET']}
+        data={listItem}
         template={listTemplate}
         events={{
           didSelect: (sender, { row }, data) => setCount((count) => count + [1, -1, -count][row]),

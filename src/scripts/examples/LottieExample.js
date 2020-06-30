@@ -9,7 +9,7 @@ export default function LottieExample() {
     loop: true,
     progress: 0,
     frameIndex: 0,
-    speed: 1
+    speed: 1,
   })
 
   useEffect(() => {
@@ -28,11 +28,11 @@ export default function LottieExample() {
         autorepeat={true}
         events={{
           changed({ value }) {
-            setOptions(draft => {
+            setOptions((draft) => {
               draft.speed = value
               $ui.toast(`${value}x`)
             })
-          }
+          },
         }}
       />
     </view>
@@ -42,5 +42,5 @@ export default function LottieExample() {
 const styles = {
   container: $rect(0, 0, width, width),
   lottie: $rect(40, 0, width - 80, width - 80),
-  stepper: $rect(width * 0.5 - 47, width - 80, 94, 32)
+  stepper: $rect(width * 0.5 - 47, width - 80, 94, 32),
 }

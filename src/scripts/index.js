@@ -4,10 +4,10 @@ import ExampleView from './components/ExampleView'
 import CodeView from './components/CodeView'
 import ExampleComps from './examples'
 
-const { width, height } = $device.info.screen
+const { width } = $device.info.screen
 
-const createContainers = (containerNames) =>
-  containerNames.map((name) => ({
+function makeCellData(components) {
+  return Object.keys(components).map((name) => ({
     title: name,
     rows: [
       {
@@ -16,9 +16,23 @@ const createContainers = (containerNames) =>
           id: name,
         },
         layout: $layout.fill,
+        events: {
+          layoutSubviews(view) {
+            if (view._reactRootContainer) return
+            const Comp = components[name]
+            ReactJSBox.render(
+              <ExampleView
+                demo={<Comp />}
+                code={<CodeView content={$file.read(`scripts/examples/${name}.js`).string} />}
+              />,
+              view
+            )
+          },
+        },
       },
     ],
   }))
+}
 
 $app.keyboardToolbarEnabled = true
 $ui.render({
@@ -31,7 +45,7 @@ $ui.render({
       type: 'list',
       props: {
         rowHeight: width,
-        data: createContainers(Object.keys(ExampleComps)),
+        data: makeCellData(ExampleComps),
       },
       layout(make, view) {
         make.edges.equalTo(view.super.safeArea)
@@ -39,11 +53,3 @@ $ui.render({
     },
   ],
 })
-
-// Create React elements and render them:
-for (const [CompName, Comp] of Object.entries(ExampleComps)) {
-  ReactJSBox.render(
-    <ExampleView demo={<Comp />} code={<CodeView content={$file.read(`scripts/examples/${CompName}.js`).string} />} />,
-    $(CompName)
-  )
-}

@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
-import { UIViewAnimationOptionCurveEaseInOut, UIViewAnimationOptionAllowUserInteraction } from '../constants'
+import {
+  UIViewAnimationOptionCurveEaseInOut,
+  UIViewAnimationOptionAllowUserInteraction,
+} from '../constants'
 const { width } = $device.info.screen
 
 const theme = {
   light: {
     backgroundColor: '#F4F4F4',
-    moonShadowOffset: 0
+    moonShadowOffset: 0,
   },
   dark: {
     backgroundColor: '#222222',
-    moonShadowOffset: 100
-  }
+    moonShadowOffset: 100,
+  },
 }
 
 export default function AnimateExample() {
@@ -18,7 +21,8 @@ export default function AnimateExample() {
   const viewProps = theme[mode]
 
   return (
-    <view frame={styles.container}
+    <view
+      frame={styles.container}
       bgcolor={$color(viewProps.backgroundColor)}
       animate={{
         duration: 0.4,
@@ -26,7 +30,7 @@ export default function AnimateExample() {
         options: UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction,
         completion() {
           $device.taptic()
-        }
+        },
       }}
     >
       <view
@@ -38,8 +42,8 @@ export default function AnimateExample() {
         borderColor={$color('#777')}
         events={{
           tapped() {
-            setMode(x => x === 'light' ? 'dark' : 'light')
-          }
+            setMode((x) => (x === 'light' ? 'dark' : 'light'))
+          },
         }}
       >
         <view
@@ -49,7 +53,7 @@ export default function AnimateExample() {
           bgcolor={$color('#000')}
           animate={{
             duration: 0.4,
-            options: UIViewAnimationOptionAllowUserInteraction
+            options: UIViewAnimationOptionAllowUserInteraction,
           }}
         />
       </view>
@@ -59,5 +63,5 @@ export default function AnimateExample() {
 
 const styles = {
   container: $rect(0, 0, width, width),
-  sun: $rect(width * 0.5 - 80, width * 0.5 - 80, 160, 160)
+  sun: $rect(width * 0.5 - 80, width * 0.5 - 80, 160, 160),
 }
