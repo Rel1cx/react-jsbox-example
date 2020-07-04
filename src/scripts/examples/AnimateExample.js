@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import {
-  UIViewAnimationOptionCurveEaseInOut,
-  UIViewAnimationOptionAllowUserInteraction,
-} from '../constants'
+import { UIViewAnimationOption } from '../constants'
 const { width } = $device.info.screen
 
 const theme = {
@@ -27,7 +24,7 @@ export default function AnimateExample() {
       animate={{
         duration: 0.4,
         delay: 0.2,
-        options: UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction,
+        options: UIViewAnimationOption.CurveEaseInOut | UIViewAnimationOption.AllowUserInteraction,
         completion() {
           $device.taptic()
         },
@@ -53,7 +50,7 @@ export default function AnimateExample() {
           bgcolor={$color('#000')}
           animate={{
             duration: 0.4,
-            options: UIViewAnimationOptionAllowUserInteraction,
+            options: UIViewAnimationOption.AllowUserInteraction,
           }}
         />
       </view>
