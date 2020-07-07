@@ -8,12 +8,12 @@ import HttpExample from './HttpExample'
 import WebViewExample from './WebViewExample'
 
 export default {
-  BasicExample,
-  CacheExample,
-  JsxLiteralExample,
-  TodoExample,
-  AnimateExample,
-  LottieExample,
-  HttpExample,
-  WebViewExample,
+    BasicExample,
+    CacheExample,
+    JsxLiteralExample,
+    TodoExample,
+    AnimateExample,
+    LottieExample,
+    HttpExample,
+    WebViewExample
 }
