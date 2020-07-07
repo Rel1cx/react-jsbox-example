@@ -1,6 +1,6 @@
 {
     "name": "react-jsbox-example",
-    "version": "1.0.0-beta",
+    "version": "1.0.0",
     "description": "",
     "main": "dist/main.js",
     "scripts": {
@@ -67,7 +67,7 @@
         "lodash-es": "^4.17.15",
         "pupa": "github:nicify/pupa#master",
         "react": "^16.13.1",
-        "react-jsbox": "1.2.1-beta",
+        "react-jsbox": "^1.2.0",
         "swr": "^0.2.3",
         "use-immer": "^0.4.0",
         "use-simple-store": "^1.3.1"
