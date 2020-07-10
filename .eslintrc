@@ -1,11 +1,11 @@
 {
   "parser": "babel-eslint",
   "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:jsbox/default"
   ],
-  "plugins": [
-    "react-hooks"
-  ],
+  "plugins": ["react", "react-hooks"],
   "env": {
     "node": true
   },
@@ -13,15 +13,13 @@
     "JSBox": "writable"
   },
   "rules": {
-    "semi": [
-      2,
-      "never"
-    ],
+    "semi": [2, "never"],
     "arrow-parens": 0,
     "global-require": 0,
     "no-underscore-dangle": 0,
     "no-param-reassign": 0,
     "import/prefer-default-export": 0,
+    "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   }
