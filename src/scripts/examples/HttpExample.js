@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import { apiKey } from '../constants'
 import { articleToMarkdown } from '../helper'
 
-const { width } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 async function fetcher(url) {
   const { data, error } = await $http.get(url)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const { width, height } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 const html = $file.read('/report.html').string
 

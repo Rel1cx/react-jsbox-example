@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { useImmer } from 'use-immer'
-const { width, height } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 export default function LottieExample() {
   const lottieRef = useRef()

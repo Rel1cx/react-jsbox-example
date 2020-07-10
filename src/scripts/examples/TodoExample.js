@@ -5,7 +5,7 @@ import { useUpdateEffect } from 'react-jsbox'
 
 enableMapSet()
 
-const { width } = $device.info.screen
+const { width } = $ui.vc.view.frame
 const TodoItemHeight = 50
 const TodoItemMargin = 5
 

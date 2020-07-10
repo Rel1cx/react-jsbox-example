@@ -2,7 +2,7 @@ import { html as jsx } from 'htm/react'
 import { useImmer } from 'use-immer'
 import invert from 'invert-color'
 
-const { width } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 export default function JsxLiteralExample() {
   const [components, updateComponents] = useImmer(

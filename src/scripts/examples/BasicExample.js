@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { listTemplate } from '../constants'
-const { width, height } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 export default class BasicExample extends Component {
   state = {
@@ -37,5 +37,5 @@ export default class BasicExample extends Component {
 const styles = {
   container: $rect(0, 0, width, width),
   text: $rect(0, 64, width, 30),
-  list: $rect(0, width * 0.5, width, 132)
+  list: $rect(0, width * 0.5 - 15, width, 132)
 }

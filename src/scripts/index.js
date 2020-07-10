@@ -4,7 +4,7 @@ import ExampleView from './components/ExampleView'
 import CodeView from './components/CodeView'
 import ExampleComps from './examples'
 
-const { width } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 function makeCellData(components) {
   return Object.keys(components).map(name => ({
@@ -18,7 +18,6 @@ function makeCellData(components) {
         layout: $layout.fill,
         events: {
           layoutSubviews(view) {
-            if (view._reactRootContainer) return
             const Comp = components[name]
             render(
               <ExampleView

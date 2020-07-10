@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { UIViewAnimationOption } from '../constants'
-const { width } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 const theme = {
   light: {

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import pupa from 'pupa'
 
-const { width } = $device.info.screen
+const { width } = $ui.vc.view.frame
 
 const HLTemplate = $file.read('assets/prism.html').string
 
