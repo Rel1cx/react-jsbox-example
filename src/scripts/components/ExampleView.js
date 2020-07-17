@@ -1,8 +1,8 @@
 import React, { memo, useState } from 'react'
 import { codeIcon } from '../constants'
-const { width } = $ui.vc.view.frame
 
-const ExampleView = ({ demo, code }) => {
+const ExampleView = ({ frame, demo, code }) => {
+  const { width } = frame
   const [showCode, setShowCode] = useState(false)
 
   return (

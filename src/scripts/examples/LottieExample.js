@@ -1,8 +1,16 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { useImmer } from 'use-immer'
-const { width } = $ui.vc.view.frame
 
-export default function LottieExample() {
+export default function LottieExample(props) {
+  const { width } = props.frame
+  const styles = useMemo(
+    () => ({
+      lottie: $rect(40, 0, width - 80, width - 80),
+      stepper: $rect(width * 0.5 - 47, width - 80, 94, 32)
+    }),
+    [width]
+  )
+
   const lottieRef = useRef()
   const [options, setOptions] = useImmer({
     src: 'assets/react-lottie.json',
@@ -17,7 +25,7 @@ export default function LottieExample() {
   }, [])
 
   return (
-    <view frame={styles.container}>
+    <view {...props}>
       <lottie frame={styles.lottie} ref={lottieRef} {...options} />
       <stepper
         frame={styles.stepper}
@@ -37,10 +45,4 @@ export default function LottieExample() {
       />
     </view>
   )
-}
-
-const styles = {
-  container: $rect(0, 0, width, width),
-  lottie: $rect(40, 0, width - 80, width - 80),
-  stepper: $rect(width * 0.5 - 47, width - 80, 94, 32)
 }

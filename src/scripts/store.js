@@ -1,5 +1,15 @@
 import { createStore } from 'use-simple-store'
 
-const globalStore = createStore({})
+export const initialSettings = {
+  enableReactProfiler: false,
+  enableHighlightUpdates: false
+}
 
-export default globalStore
+export const settingsStore = createStore(
+  $cache.get('settingsStore') || initialSettings
+)
+
+settingsStore.subscribe(state => {
+  global.__REACT_JSBOX_HIGHLIGHT_UPDATES__ = state.enableHighlightUpdates
+  $cache.set('settingsStore', state)
+})

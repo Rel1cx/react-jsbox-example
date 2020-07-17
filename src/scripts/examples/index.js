@@ -6,6 +6,7 @@ import AnimateExample from './AnimateExample'
 import LottieExample from './LottieExample'
 import HttpExample from './HttpExample'
 import WebViewExample from './WebViewExample'
+import SettingsExample from './SettingsExample'
 
 export default {
   BasicExample,
@@ -15,5 +16,6 @@ export default {
   AnimateExample,
   LottieExample,
   HttpExample,
-  WebViewExample
+  WebViewExample,
+  SettingsExample
 }

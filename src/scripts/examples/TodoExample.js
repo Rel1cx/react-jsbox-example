@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useMemo, useEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react'
 import { enableMapSet } from 'immer'
 import { useImmer } from 'use-immer'
 import { useUpdateEffect } from 'react-jsbox'
@@ -8,13 +8,6 @@ enableMapSet()
 const { width } = $ui.vc.view.frame
 const TodoItemHeight = 50
 const TodoItemMargin = 5
-
-const styles = {
-  container: $rect(0, 0, width, width),
-  scroll: $rect(0, 50, width, width - 50),
-  input: $rect(5, 8, width - 60, 35),
-  button: $rect(width - 50, 8, 45, 35)
-}
 
 function calcLabelFrame(index) {
   return $rect(
@@ -29,7 +22,16 @@ function calcScrollContentSize(itemNum) {
   return $size(width, itemNum * (TodoItemHeight + TodoItemMargin))
 }
 
-export default function TodoExample() {
+export default function TodoExample(props) {
+  const { width } = props.frame
+  const styles = useMemo(
+    () => ({
+      scroll: $rect(0, 50, width, width - 50),
+      input: $rect(5, 8, width - 60, 35),
+      button: $rect(width - 50, 8, 45, 35)
+    }),
+    [width]
+  )
   const [todoList, setTodoList] = useImmer(new Map())
   const inputRef = useRef()
   const scrollRef = useRef()
@@ -44,7 +46,7 @@ export default function TodoExample() {
   useUpdateEffect(() => $device.taptic(), [todoList])
 
   return (
-    <view frame={styles.container}>
+    <view {...props}>
       <input
         frame={styles.input}
         ref={inputRef}

@@ -1,8 +1,10 @@
 import React from 'react'
 import { render } from 'react-jsbox'
-import ExampleView from './components/ExampleView'
 import CodeView from './components/CodeView'
+import CustomProfiler from './components/CustomProfiler'
 import ExampleComps from './examples'
+import ExampleView from './components/ExampleView'
+import { printRenderTimings } from './helper'
 
 const { width } = $ui.vc.view.frame
 
@@ -21,9 +23,15 @@ function makeCellData(components) {
             const Comp = components[name]
             render(
               <ExampleView
-                demo={<Comp />}
+                frame={view.frame}
+                demo={
+                  <CustomProfiler id={name} onRender={printRenderTimings}>
+                    <Comp frame={view.frame} />
+                  </CustomProfiler>
+                }
                 code={
                   <CodeView
+                    frame={view.frame}
                     content={$file.read(`scripts/examples/${name}.js`).string}
                   />
                 }
@@ -40,8 +48,7 @@ function makeCellData(components) {
 $app.keyboardToolbarEnabled = true
 $ui.render({
   props: {
-    title: 'ReactJSBox Example',
-    debugging: true
+    title: 'ReactJSBox Example'
   },
   views: [
     {

@@ -1,10 +1,18 @@
+import { useMemo } from 'react'
 import { html as jsx } from 'htm/react'
 import { useImmer } from 'use-immer'
 import invert from 'invert-color'
 
-const { width } = $ui.vc.view.frame
+export default function JsxLiteralExample(props) {
+  const { width } = props.frame
+  const styles = useMemo(
+    () => ({
+      text: $rect(width * 0.5 - 50, 64, 100, 30),
+      slider: $rect(20, width * 0.4, width - 40, 50)
+    }),
+    [width]
+  )
 
-export default function JsxLiteralExample() {
   const [components, updateComponents] = useImmer(
     $color({ light: '#FFFFFF', dark: '#000000' }).components
   )
@@ -12,8 +20,8 @@ export default function JsxLiteralExample() {
   const color = $rgb(components.red, components.green, components.blue)
 
   return jsx`<view
-      frame=${styles.container}
       bgcolor=${color}
+      ...${props}
   >
   <label
       frame=${styles.text}
@@ -42,10 +50,4 @@ export default function JsxLiteralExample() {
     }} />`
   )}
 </view>`
-}
-
-const styles = {
-  container: $rect(0, 0, width, width),
-  text: $rect(width * 0.5 - 50, 64, 100, 30),
-  slider: $rect(20, width * 0.4, width - 40, 50)
 }

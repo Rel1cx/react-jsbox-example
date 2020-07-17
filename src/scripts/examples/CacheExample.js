@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useCache } from 'react-jsbox'
 import { listTemplate } from '../constants'
-const { width } = $ui.vc.view.frame
 
-export default function CacheExample() {
+export default function CacheExample(props) {
+  const { width } = props.frame
   const [count, setCount] = useCache('count', 0)
 
+  const styles = useMemo(
+    () => ({
+      text: $rect(0, 64, width, 30),
+      list: $rect(0, width * 0.5 - 15, width, 132)
+    }),
+    [width]
+  )
+
   return (
-    <view frame={styles.container}>
+    <view {...props}>
       <label
         frame={styles.text}
         align={$align.center}
@@ -28,10 +36,4 @@ export default function CacheExample() {
       />
     </view>
   )
-}
-
-const styles = {
-  container: $rect(0, 0, width, width),
-  text: $rect(0, 64, width, 30),
-  list: $rect(0, width * 0.5 - 15, width, 132)
 }

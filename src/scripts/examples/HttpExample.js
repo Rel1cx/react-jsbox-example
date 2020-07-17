@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import useSWR from 'swr'
 import { apiKey } from '../constants'
 import { articleToMarkdown } from '../helper'
-
-const { width } = $ui.vc.view.frame
 
 async function fetcher(url) {
   const { data, error } = await $http.get(url)
@@ -13,7 +11,17 @@ async function fetcher(url) {
   return data
 }
 
-export default function HttpExample() {
+export default function HttpExample(props) {
+  const { width } = props.frame
+
+  const styles = useMemo(
+    () => ({
+      loading: $rect(0, width * 0.3, width, 50),
+      spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20)
+    }),
+    [width]
+  )
+
   const { data, error } = useSWR(
     `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`,
     fetcher
@@ -50,14 +58,8 @@ export default function HttpExample() {
   // Fetched content state
   return (
     <markdown
-      frame={styles.content}
+      {...props}
       content={articleToMarkdown(data.url, data.title, data.explanation)}
     />
   )
-}
-
-const styles = {
-  content: $rect(0, 0, width, width),
-  loading: $rect(0, width * 0.3, width, 50),
-  spinner: $rect(width * 0.5 - 10, width * 0.5, 20, 20)
 }

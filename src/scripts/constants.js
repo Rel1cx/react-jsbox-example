@@ -30,16 +30,3 @@ export const UIViewAnimationOption = {
   PreferredFramesPerSecond30: 7 << 24,
   PreferredFramesPerSecond60: 3 << 24
 }
-
-export const listTemplate = {
-  views: [
-    {
-      type: 'label',
-      props: {
-        align: $align.center,
-        font: $font('iosevka', 24)
-      },
-      layout: $layout.fill
-    }
-  ]
-}
