@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { listTemplate } from '../constants'
-const { width } = $ui.vc.view.frame
 
 export default class BasicExample extends Component {
   state = {
     count: 0
   }
   render() {
+    const { width } = this.props.frame
+    const styles = {
+      text: $rect(0, 64, width, 30),
+      list: $rect(0, width * 0.5 - 15, width, 132)
+    }
     return (
-      <view frame={styles.container}>
+      <view {...this.props}>
         <label
           frame={styles.text}
           align={$align.center}
@@ -32,10 +36,4 @@ export default class BasicExample extends Component {
       </view>
     )
   }
-}
-
-const styles = {
-  container: $rect(0, 0, width, width),
-  text: $rect(0, 64, width, 30),
-  list: $rect(0, width * 0.5 - 15, width, 132)
 }

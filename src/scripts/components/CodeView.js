@@ -1,13 +1,12 @@
-import React, { useMemo } from 'react'
+import React, { memo, useMemo } from 'react'
 import pupa from 'pupa'
-
-const { width } = $ui.vc.view.frame
 
 const HLTemplate = $file.read('assets/prism.html').string
 
-export default function CodeView(props) {
-  const { content } = props
+function CodeView({ content, ...rest }) {
   const html = useMemo(() => pupa(HLTemplate, { code: content }), [content])
 
-  return <web frame={$rect(0, 0, width, width)} html={html} />
+  return <web html={html} {...rest} />
 }
+
+export default memo(CodeView)

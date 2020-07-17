@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { UIViewAnimationOption } from '../constants'
-const { width } = $ui.vc.view.frame
 
 const theme = {
   light: {
@@ -13,13 +12,20 @@ const theme = {
   }
 }
 
-export default function AnimateExample() {
+export default function AnimateExample(props) {
+  const { width, height } = props.frame
   const [mode, setMode] = useState('light')
   const viewProps = theme[mode]
 
+  const styles = useMemo(
+    () => ({
+      sun: $rect(width * 0.5 - 80, width * 0.5 - 80, 160, 160)
+    }),
+    [width, height]
+  )
+
   return (
     <view
-      frame={styles.container}
       bgcolor={$color(viewProps.backgroundColor)}
       animate={{
         duration: 0.4,
@@ -31,6 +37,7 @@ export default function AnimateExample() {
           $device.taptic()
         }
       }}
+      {...props}
     >
       <view
         id="sun"
@@ -63,9 +70,4 @@ export default function AnimateExample() {
       </view>
     </view>
   )
-}
-
-const styles = {
-  container: $rect(0, 0, width, width),
-  sun: $rect(width * 0.5 - 80, width * 0.5 - 80, 160, 160)
 }
