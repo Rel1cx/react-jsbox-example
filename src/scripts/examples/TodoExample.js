@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useMemo, useRef } from 'react'
+import React, { useLayoutEffect, useMemo, useRef } from 'react'
 import { enableMapSet } from 'immer'
 import { useImmer } from 'use-immer'
 import { useUpdateEffect } from 'react-jsbox'
