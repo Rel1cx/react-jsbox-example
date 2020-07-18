@@ -155,9 +155,9 @@ const actions = {
     sender => {
       settingsStore.update(() => initialSettings)
       // prettier-ignore
-      sender.cell($indexPath(0, 0)).get('switch').on = initialSettings.enableReactProfiler
+      // sender.cell($indexPath(0, 0)).get('switch').on = initialSettings.enableReactProfiler
       // prettier-ignore
-      sender.cell($indexPath(0, 1)).get('switch').on = initialSettings.enableHighlightUpdates
+      // sender.cell($indexPath(0, 1)).get('switch').on = initialSettings.enableHighlightUpdates
     }
   ]
 }
