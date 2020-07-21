@@ -5,6 +5,7 @@ import TodoExample from './TodoExample'
 import AnimateExample from './AnimateExample'
 import LottieExample from './LottieExample'
 import HttpExample from './HttpExample'
+import InfiniteLoadingExample from './InfiniteLoadingExample'
 import WebViewExample from './WebViewExample'
 import SettingsExample from './SettingsExample'
 
@@ -16,6 +17,7 @@ export default {
   AnimateExample,
   LottieExample,
   HttpExample,
+  InfiniteLoadingExample,
   WebViewExample,
   SettingsExample
 }

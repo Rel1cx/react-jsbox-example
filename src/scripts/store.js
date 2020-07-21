@@ -9,7 +9,4 @@ export const settingsStore = createStore(
   $cache.get('settingsStore') || initialSettings
 )
 
-settingsStore.subscribe(state => {
-  global.__REACT_JSBOX_HIGHLIGHT_UPDATES__ = state.enableHighlightUpdates
-  $cache.set('settingsStore', state)
-})
+settingsStore.subscribe(state => $cache.set('settingsStore', state))
