@@ -1,10 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { initialSettings, settingsStore } from '../store'
 import { noop } from '../helper'
 
 const Settings = props => {
   const settingsRef = useRef()
   const settings = settingsStore.useStore()
+
+  useEffect(() => {
+    global.__REACT_JSBOX_HIGHLIGHT_UPDATES__ = settings.enableHighlightUpdates
+  }, [settings.enableHighlightUpdates])
 
   return (
     <view {...props}>
@@ -155,9 +159,9 @@ const actions = {
     sender => {
       settingsStore.update(() => initialSettings)
       // prettier-ignore
-      sender.cell($indexPath(0, 0)).get('switch').on = initialSettings.enableReactProfiler
+      // sender.cell($indexPath(0, 0)).get('switch').on = initialSettings.enableReactProfiler
       // prettier-ignore
-      sender.cell($indexPath(0, 1)).get('switch').on = initialSettings.enableHighlightUpdates
+      // sender.cell($indexPath(0, 1)).get('switch').on = initialSettings.enableHighlightUpdates
     }
   ]
 }

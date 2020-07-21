@@ -27,7 +27,7 @@ export default class BasicExample extends Component {
           data={['INCREASE', 'DECREASE', 'RESET']}
           template={listTemplate}
           events={{
-            didSelect: (sender, { row }, data) =>
+            didSelect: (sender, { row }) =>
               this.setState({
                 count: this.state.count + [1, -1, -this.state.count][row]
               })

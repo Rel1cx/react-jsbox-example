@@ -19,7 +19,6 @@ export const UIViewAnimationOption = {
   CurveLinear: 3 << 16,
   TransitionNone: 0 << 20,
   TransitionFlipFromLeft: 1 << 20,
-  TransitionFlipFromLeft: 1 << 20,
   TransitionFlipFromRight: 2 << 20,
   TransitionCurlUp: 3 << 20,
   TransitionCurlDown: 4 << 20,
