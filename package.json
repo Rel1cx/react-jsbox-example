@@ -10,8 +10,14 @@
     "clean": "rimraf .cache",
     "build": "npm run clean && parcel build src/main.js --no-source-maps",
     "build:box": "jsbox build dist",
+    "lint": "eslint --fix src/**/*.js",
     "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}",
     "postinstall": "npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run lint && git add ."
+    }
   },
   "keywords": [],
   "author": "",
@@ -46,11 +52,12 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/runtime": "^7.10.5",
-    "babel-eslint": "^11.0.0-beta.2",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
     "jsbox-cli": "^1.2.1",
     "npm-run-all": "^4.1.5",
     "parcel": "^1.12.4",

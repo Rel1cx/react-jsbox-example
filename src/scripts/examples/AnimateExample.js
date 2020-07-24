@@ -13,7 +13,7 @@ const theme = {
 }
 
 export default function AnimateExample(props) {
-  const { width, height } = props.frame
+  const { width } = props.frame
   const [mode, setMode] = useState('light')
   const viewProps = theme[mode]
 
@@ -21,7 +21,7 @@ export default function AnimateExample(props) {
     () => ({
       sun: $rect(width * 0.5 - 80, width * 0.5 - 80, 160, 160)
     }),
-    [width, height]
+    [width]
   )
 
   return (

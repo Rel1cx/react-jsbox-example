@@ -156,7 +156,7 @@ const Settings = props => {
 const actions = {
   profiler: [noop, noop],
   misc: [
-    sender => {
+    () => {
       settingsStore.update(() => initialSettings)
       // prettier-ignore
       // sender.cell($indexPath(0, 0)).get('switch').on = initialSettings.enableReactProfiler
