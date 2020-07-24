@@ -22,10 +22,7 @@ export default function HttpExample(props) {
     [width]
   )
 
-  const { data, error } = useSWR(
-    `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`,
-    fetcher
-  )
+  const { data, error } = useSWR(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`, fetcher)
 
   // Error state
   if (error) {
@@ -44,22 +41,12 @@ export default function HttpExample(props) {
   if (!data) {
     return (
       <>
-        <label
-          frame={styles.loading}
-          font={$font(48)}
-          text="APOD"
-          align={$align.center}
-        />
+        <label frame={styles.loading} font={$font(48)} text="APOD" align={$align.center} />
         <spinner frame={styles.spinner} loading={true} />
       </>
     )
   }
 
   // Fetched content state
-  return (
-    <markdown
-      {...props}
-      content={articleToMarkdown(data.url, data.title, data.explanation)}
-    />
-  )
+  return <markdown {...props} content={articleToMarkdown(data.url, data.title, data.explanation)} />
 }

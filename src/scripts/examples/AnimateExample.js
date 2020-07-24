@@ -30,9 +30,7 @@ export default function AnimateExample(props) {
       animate={{
         duration: 0.4,
         delay: 0.2,
-        options:
-          UIViewAnimationOption.CurveEaseInOut |
-          UIViewAnimationOption.AllowUserInteraction,
+        options: UIViewAnimationOption.CurveEaseInOut | UIViewAnimationOption.AllowUserInteraction,
         completion() {
           $device.taptic()
         }

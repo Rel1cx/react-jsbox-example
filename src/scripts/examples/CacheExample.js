@@ -30,8 +30,7 @@ export default function CacheExample(props) {
         data={['INCREASE', 'DECREASE', 'RESET']}
         template={listTemplate}
         events={{
-          didSelect: (sender, { row }) =>
-            setCount(count => count + [1, -1, -count][row])
+          didSelect: (sender, { row }) => setCount(count => count + [1, -1, -count][row])
         }}
       />
     </view>
