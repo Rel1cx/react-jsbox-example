@@ -10,12 +10,7 @@ const TodoItemHeight = 50
 const TodoItemMargin = 5
 
 function calcLabelFrame(index) {
-  return $rect(
-    0,
-    index * (TodoItemHeight + TodoItemMargin),
-    width,
-    TodoItemHeight
-  )
+  return $rect(0, index * (TodoItemHeight + TodoItemMargin), width, TodoItemHeight)
 }
 
 function calcScrollContentSize(itemNum) {
@@ -47,11 +42,7 @@ export default function TodoExample(props) {
 
   return (
     <view {...props}>
-      <input
-        frame={styles.input}
-        ref={inputRef}
-        placeholder="Input todo item"
-      />
+      <input frame={styles.input} ref={inputRef} placeholder="Input todo item" />
       <button
         frame={styles.button}
         title="Add"

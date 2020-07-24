@@ -10,13 +10,16 @@
     "clean": "rimraf .cache",
     "build": "npm run clean && parcel build src/main.js --no-source-maps",
     "build:box": "jsbox build dist",
+    "lint": "eslint --fix src/**/*.js",
     "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}",
     "postinstall": "npm run build"
   },
-  "keywords": [
-    "react",
-    "jsbox"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run lint && git add ."
+    }
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "browserslist": [
@@ -43,26 +46,27 @@
     "limit": 10240
   },
   "devDependencies": {
-    "@babel/cli": "7.10.5",
-    "@babel/core": "7.10.5",
-    "@babel/plugin-transform-runtime": "7.10.5",
-    "@babel/preset-env": "7.10.4",
-    "@babel/preset-react": "7.10.4",
-    "@babel/runtime": "7.10.5",
-    "babel-eslint": "10.1.0",
-    "babel-plugin-annotate-pure-calls": "0.4.0",
-    "eslint": "7.5.0",
-    "eslint-plugin-jsbox": "0.1.1",
-    "eslint-plugin-react": "7.20.3",
-    "eslint-plugin-react-hooks": "4.0.8",
-    "jsbox-cli": "1.2.1",
-    "npm-run-all": "4.1.5",
-    "parcel": "1.12.4",
-    "parcel-plugin-bundle-visualiser": "1.2.0",
-    "parcel-plugin-static-files-copy": "2.4.3",
-    "parcel-plugin-url-loader": "1.3.1",
-    "prettier": "2.0.5",
-    "rimraf": "3.0.2"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/runtime": "^7.10.5",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-jsbox": "^0.1.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
+    "jsbox-cli": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^1.12.4",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "parcel-plugin-static-files-copy": "^2.4.3",
+    "parcel-plugin-url-loader": "^1.3.1",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -72,7 +76,7 @@
     "lodash-es": "^4.17.15",
     "pupa": "github:nicify/pupa#master",
     "react": "^16.13.1",
-    "react-jsbox": "^1.2.4-beta",
+    "react-jsbox": "^1.2.6-beta",
     "swr": "^0.3.0-beta.10",
     "use-immer": "^0.4.1",
     "use-simple-store": "^1.3.1"

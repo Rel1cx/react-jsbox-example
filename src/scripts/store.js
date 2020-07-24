@@ -5,8 +5,6 @@ export const initialSettings = {
   enableHighlightUpdates: false
 }
 
-export const settingsStore = createStore(
-  $cache.get('settingsStore') || initialSettings
-)
+export const settingsStore = createStore($cache.get('settingsStore') || initialSettings)
 
 settingsStore.subscribe(state => $cache.set('settingsStore', state))

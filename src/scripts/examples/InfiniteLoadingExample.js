@@ -6,28 +6,20 @@ const fetcher = async url => $http.get(url).then(res => res.data)
 
 export default function InfiniteLoadingExample(props) {
   const { data, error, mutate, size, setSize } = useSWRInfinite(
-    index =>
-      `https://api.github.com/repos/facebook/react/issues?per_page=50&page=${
-        index + 1
-      }`,
+    index => `https://api.github.com/repos/facebook/react/issues?per_page=50&page=${index + 1}`,
     fetcher
   )
 
   const issues = data ? [].concat(...data) : []
   const isLoadingInitialData = !data && !error
-  const isLoadingMore =
-    isLoadingInitialData || (data && typeof data[size - 1] === 'undefined')
+  const isLoadingMore = isLoadingInitialData || (data && typeof data[size - 1] === 'undefined')
   const isEmpty = data?.[0]?.length === 0
   const isReachingEnd = isEmpty || (data && data[data.length - 1]?.length < 50)
 
   const latests = useLatest({ isReachingEnd })
 
   useEffect(() => {
-    $ui.toast(
-      `showing ${size} page(s) of ${
-        isLoadingMore ? '...' : issues.length
-      } issue(s)`
-    )
+    $ui.toast(`showing ${size} page(s) of ${isLoadingMore ? '...' : issues.length} issue(s)`)
   }, [size, isLoadingMore, issues])
 
   return (
