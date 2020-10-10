@@ -55,7 +55,7 @@
     "babel-eslint": "10.1.0",
     "eslint": "7.10.0",
     "eslint-plugin-jsbox": "0.1.1",
-    "eslint-plugin-react": "7.21.3",
+    "eslint-plugin-react": "7.21.4",
     "eslint-plugin-react-hooks": "4.1.2",
     "husky": "4.3.0",
     "jsbox-cli": "1.2.1",
