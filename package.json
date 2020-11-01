@@ -75,7 +75,7 @@
     "invert-color": "^2.0.0",
     "lodash-es": "^4.17.15",
     "pupa": "github:nicify/pupa#master",
-    "react": "^16.14.0",
+    "react": "^17.0.0",
     "react-jsbox": "^1.2.9",
     "swr": "^0.3.8",
     "use-immer": "^0.4.1",
