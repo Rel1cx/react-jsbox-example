@@ -1,10 +1,11 @@
-import { createStore } from 'use-simple-store'
+import { proxy, subscribe } from 'valtio'
+import { initialSettingsState } from './constants'
 
-export const initialSettings = {
-  enableReactProfiler: false,
-  enableHighlightUpdates: false
-}
+export const globalState = proxy({
+  count: 0,
+  settings: $cache.get('settingsStore') || initialSettingsState
+})
 
-export const settingsStore = createStore($cache.get('settingsStore') || initialSettings)
-
-settingsStore.subscribe(state => $cache.set('settingsStore', state))
+subscribe(globalState.settings, () => {
+  $cache.set('settingsStore', globalState.settings)
+})

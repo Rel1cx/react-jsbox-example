@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from 'react'
-import { initialSettings, settingsStore } from '../store'
+import { useProxy } from 'valtio'
+import { globalState } from '../store'
 import { noop } from '../helper'
+import { initialSettingsState } from '../constants'
 
 const Settings = props => {
   const settingsRef = useRef()
-  const settings = settingsStore.useStore()
+  const settings = useProxy(globalState.settings)
 
   useEffect(() => {
     global.__REACT_JSBOX_HIGHLIGHT_UPDATES__ = settings.enableHighlightUpdates
@@ -77,9 +79,7 @@ const Settings = props => {
                     },
                     events: {
                       changed(sender) {
-                        settingsStore.update(state => {
-                          state.enableReactProfiler = sender.on
-                        })
+                        globalState.settings.enableReactProfiler = sender.on
                         $audio.play({
                           id: 1104
                         })
@@ -116,9 +116,7 @@ const Settings = props => {
                     },
                     events: {
                       changed(sender) {
-                        settingsStore.update(state => {
-                          state.enableHighlightUpdates = sender.on
-                        })
+                        globalState.settings.enableHighlightUpdates = sender.on
                         $audio.play({
                           id: 1104
                         })
@@ -157,7 +155,8 @@ const actions = {
   profiler: [noop, noop],
   misc: [
     () => {
-      settingsStore.update(() => initialSettings)
+      globalState.settings = initialSettingsState
+      // settingsStore.update(() => initialSettings)
       // prettier-ignore
       // sender.cell($indexPath(0, 0)).get('switch').on = initialSettings.enableReactProfiler
       // prettier-ignore

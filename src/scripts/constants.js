@@ -29,3 +29,8 @@ export const UIViewAnimationOption = {
   PreferredFramesPerSecond30: 7 << 24,
   PreferredFramesPerSecond60: 3 << 24
 }
+
+export const initialSettingsState = {
+  enableReactProfiler: false,
+  enableHighlightUpdates: false
+}
