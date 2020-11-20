@@ -78,7 +78,7 @@
     "react-jsbox": "^1.2.9",
     "swr": "^0.3.9",
     "use-immer": "^0.4.2",
-    "valtio": "^0.2.3"
+    "valtio": "^0.3.0"
   },
   "staticFiles": {
     "staticPath": [
