@@ -5,8 +5,29 @@ import CustomProfiler from './components/CustomProfiler'
 import ExampleComps from './examples'
 import ExampleView from './components/ExampleView'
 import { printRenderTimings } from './helper'
+import { settingsStore } from './store'
 
 const { width } = $ui.vc.view.frame
+
+function Cell({ frame, name, Comp }) {
+  const settings = settingsStore.useStore()
+
+  return (
+    <ExampleView
+      frame={frame}
+      demo={
+        <CustomProfiler
+          enable={settings.enableReactProfiler}
+          id={name}
+          onRender={printRenderTimings}
+        >
+          <Comp frame={frame} />
+        </CustomProfiler>
+      }
+      code={<CodeView frame={frame} content={$file.read(`scripts/examples/${name}.js`).string} />}
+    />
+  )
+}
 
 function makeCellData(components) {
   return Object.keys(components).map(name => ({
@@ -21,23 +42,7 @@ function makeCellData(components) {
         events: {
           layoutSubviews(view) {
             const Comp = components[name]
-            render(
-              <ExampleView
-                frame={view.frame}
-                demo={
-                  <CustomProfiler id={name} onRender={printRenderTimings}>
-                    <Comp frame={view.frame} />
-                  </CustomProfiler>
-                }
-                code={
-                  <CodeView
-                    frame={view.frame}
-                    content={$file.read(`scripts/examples/${name}.js`).string}
-                  />
-                }
-              />,
-              view
-            )
+            render(<Cell frame={view.frame} name={name} Comp={Comp} />, view)
           }
         }
       }
