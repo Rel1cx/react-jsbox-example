@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useLatest } from 'react-jsbox'
 import { useSWRInfinite } from 'swr'
 
@@ -10,7 +10,7 @@ export default function InfiniteLoadingExample(props) {
     fetcher
   )
 
-  const issues = data ? [].concat(...data) : []
+  const issues = useMemo(() => (data ? [].concat(...data) : []), [data])
   const isLoadingInitialData = !data && !error
   const isLoadingMore = isLoadingInitialData || (data && typeof data[size - 1] === 'undefined')
   const isEmpty = data?.[0]?.length === 0
